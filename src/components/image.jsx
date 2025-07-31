@@ -16,7 +16,7 @@ const ImageScrolling = () => {
     const scrollLength = totalScrollWidth + window.innerWidth;
 
     const startValue =
-      window.innerWidth < 768 ? 'center center' : 'top center';
+      window.innerWidth < 768 ? 'center center' : 'center center';
 
     const ctx = gsap.context(() => {
       gsap.to(scroll, {

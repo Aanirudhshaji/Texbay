@@ -6,17 +6,18 @@ import { motion } from "framer-motion";
 const About = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.4,
+    threshold: 0.2, // Improved for Safari triggering
   });
 
   const CustomButton = () => (
     <button
-      type="submit"
-      className="flex justify-left gap-2 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-[#396FD4] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-[#396FD4] before:-z-10 before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
+      type="button"
+      className="relative z-10 px-4 py-2 flex items-center gap-2 justify-left border-2 border-[#396FD4] text-lg font-semibold rounded-full overflow-hidden group bg-white/70 supports-blur:backdrop-blur-md shadow-xl hover:text-[#ffffff]"
     >
-      Explore
+      <span className="relative z-10">Explore</span>
+
       <svg
-        className="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
+        className="w-8 h-8 p-2 border border-gray-700 rounded-full transform transition-transform duration-300 ease-linear group-hover:rotate-90 group-hover:bg-gray-50"
         viewBox="0 0 16 19"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -25,14 +26,23 @@ const About = () => {
           className="fill-gray-800 group-hover:fill-gray-800"
         />
       </svg>
+
+      {/* Animated background span instead of pseudo-element */}
+      <span
+        className="absolute left-0 top-0 w-full h-full bg-[#396FD4] -z-10 scale-x-0 group-hover:scale-x-150 transition-transform duration-700 ease-in-out origin-left rounded-full"
+        aria-hidden="true"
+      ></span>
     </button>
   );
 
   return (
-    <section className="relative overflow-hidden bg-white py-12 px-4 sm:px-6 md:px-20" id="about">
+    <section
+      className="relative overflow-hidden bg-white py-12 px-4 sm:px-6 md:px-20"
+      id="about"
+    >
       {/* Side shadows */}
-      <div className="hidden md:block absolute left-0 top-0 h-full w-12 bg-white shadow-[40px_0_60px_20px_rgba(255,255,255,1)] z-10"></div>
-      <div className="hidden md:block absolute right-0 top-0 h-full w-12 bg-white shadow-[-40px_0_60px_20px_rgba(255,255,255,1)] z-10"></div>
+      <div className="hidden md:block absolute left-0 top-0 h-full w-12 bg-white shadow-[40px_0_60px_20px_rgba(255,255,255,1)] z-10" />
+      <div className="hidden md:block absolute right-0 top-0 h-full w-12 bg-white shadow-[-40px_0_60px_20px_rgba(255,255,255,1)] z-10" />
 
       <div className="max-w-7xl mx-auto relative z-20 grid grid-cols-1 md:grid-cols-2 items-start">
         {/* Left side */}
@@ -41,7 +51,7 @@ const About = () => {
             About Us
           </h4>
 
-          <h2 className="text-2xl sm:text-4xl md:text-5xl text-left font-bold leading-snug sm:leading-tight mb-4">
+          <h2 className="text-2xl text-[#0059FF] sm:text-4xl md:text-5xl text-left font-bold leading-snug sm:leading-tight mb-4">
             A unique blend of strategy,{" "}
             <span className="relative inline-block">
               marketing
@@ -72,8 +82,10 @@ const About = () => {
         {/* Right side */}
         <div className="pt-2 sm:pt-12">
           <p className="text-sm sm:text-base leading-relaxed text-gray-800 mb-8 sm:mb-14 text-left md:text-left">
-            Companies and organizations have no choice but to achieve perfection in a world of algorithms, artificial intelligence, and word-of-mouth.
-            Keeper has assembled a group of strategists, designers, branding experts, business model specialists, and service designers.
+            Companies and organizations have no choice but to achieve perfection
+            in a world of algorithms, artificial intelligence, and word-of-mouth.
+            Keeper has assembled a group of strategists, designers, branding
+            experts, business model specialists, and service designers.
             We assist our clients in excelling in their fields. or even more powerful.
           </p>
 
@@ -83,7 +95,7 @@ const About = () => {
             className="flex flex-row justify-left items-center gap-2 md:gap-13 text-center overflow-x-auto px-2 no-scrollbar mb-6"
           >
             <div className="min-w-[90px] flex-shrink-0">
-              <h3 className="text-3xl sm:text-7xl font-semibold text-[#396FD4] whitespace-nowrap">
+              <h3 className="text-3xl sm:text-7xl font-semibold text-[#0059FF] whitespace-nowrap">
                 {inView && <CountUp end={3} duration={2} />}+
               </h3>
               <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
@@ -94,7 +106,7 @@ const About = () => {
             <div className="h-10 border-l border-gray-300 mx-2" />
 
             <div className="min-w-[90px] flex-shrink-0">
-              <h3 className="text-3xl sm:text-7xl font-semibold text-[#396FD4] whitespace-nowrap">
+              <h3 className="text-3xl sm:text-7xl font-semibold text-[#0059FF] whitespace-nowrap">
                 {inView && <CountUp end={15} duration={2} />}+
               </h3>
               <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
@@ -105,7 +117,7 @@ const About = () => {
             <div className="h-10 border-l border-gray-300 mx-2" />
 
             <div className="min-w-[90px] flex-shrink-0">
-              <h3 className="text-3xl sm:text-7xl font-semibold text-[#396FD4] whitespace-nowrap">
+              <h3 className="text-3xl sm:text-7xl font-semibold text-[#0059FF] whitespace-nowrap">
                 {inView && <CountUp end={20} duration={2} />}+
               </h3>
               <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
