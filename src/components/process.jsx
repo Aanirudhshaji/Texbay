@@ -128,7 +128,7 @@ const Process = () => {
                     className="w-12 h-12 object-contain"
                   />
                 </div>
-                <h1 className="text-lg font-semibold text-[#002bba]">
+                <h1 className="text-lg font-bold text-[#002bba]">
                   {step.title}
                 </h1>
                 <p className="text-sm font-poppins font-medium text-[#002bba] mt-3 leading-relaxed">

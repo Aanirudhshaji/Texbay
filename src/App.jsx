@@ -3,7 +3,7 @@ import Navbar from './components/navbar';
 import Hero from './components/hero';
 import Scroll from './components/scroll';
 import About from './components/about';
-import ImageScrolling from './components/image';
+import WhatWeDo from './components/whatwedo';
 import Services from './components/services';
 import Process from './components/process';
 import Scroll1 from './components/scroll1';
@@ -19,7 +19,7 @@ function App() {
       <Hero />
       <Scroll />
       <About />
-      <ImageScrolling />
+      <WhatWeDo />
       <Services />
       <Process />
       <Scroll1 />

@@ -20,7 +20,7 @@ const Projects = () => {
   useEffect(() => {
     const setupScroll = (ref, direction = 1, speed = 0.5) => {
       const container = ref.current;
-      if (!container) return;
+      if (!container || container.scrollWidth <= container.clientWidth) return;
 
       const scroll = () => {
         container.scrollLeft += direction * speed;
@@ -35,7 +35,7 @@ const Projects = () => {
         }
       };
 
-      const interval = setInterval(scroll, 20); // Slower interval for better performance
+      const interval = setInterval(scroll, 20);
       return () => clearInterval(interval);
     };
 
@@ -51,14 +51,20 @@ const Projects = () => {
   const cardClass =
     "min-w-[260px] sm:min-w-[320px] md:min-w-[360px] h-[200px] sm:h-[260px] md:h-[300px] rounded-2xl overflow-hidden shadow-md flex-shrink-0";
 
-  const fullRow1 = [...baseProjects, ...baseProjects, ...baseProjects];
-  const fullRow2 = [...baseProjects, ...baseProjects, ...baseProjects];
+  const fullRow1 = [...baseProjects, ...baseProjects, ...baseProjects, ...baseProjects];
+  const fullRow2 = [...baseProjects, ...baseProjects, ...baseProjects, ...baseProjects];
+
+  const scrollStyles = {
+    scrollbarWidth: "none",
+    msOverflowStyle: "none",
+    WebkitOverflowScrolling: "touch",
+  };
 
   return (
     <section className="w-full py-20 bg-white text-black">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto mb-10 flex items-center justify-between flex-wrap px-4 md:px-2">
-        <div className="mb-4 md:mb-0">
+      {/* Header with desktop button */}
+      <div className="max-w-7xl mx-auto mb-10 px-4 md:px-2 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
           <p className="text-xs uppercase tracking-widest font-semibold text-[#000000] mb-1">
             Projects
           </p>
@@ -66,20 +72,19 @@ const Projects = () => {
             Captivate your audience’s <span>senses, non-stop</span>
           </h2>
         </div>
-        <button className="border border-[#002bba] px-5 py-2 rounded-full text-sm hover:bg-[#002bba] hover:text-white transition duration-300">
-          View All ↗
-        </button>
+        {/* Desktop button only */}
+        <div className="hidden md:flex">
+          <button className="border border-[#002bba] px-5 py-2 rounded-full text-sm hover:bg-[#002bba] hover:text-white transition duration-300">
+            View All ↗
+          </button>
+        </div>
       </div>
 
       {/* Row 1 */}
       <div
         ref={row1Ref}
-        className="flex gap-6 overflow-x-auto mb-8 px-4 md:px-8"
-        style={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          WebkitOverflowScrolling: "touch",
-        }}
+        className="flex gap-6 overflow-x-auto mb-8 px-4 md:px-8 md:py-5 touch-none select-none"
+        style={scrollStyles}
       >
         {fullRow1.map((proj, i) => (
           <motion.div
@@ -101,12 +106,8 @@ const Projects = () => {
       {/* Row 2 */}
       <div
         ref={row2Ref}
-        className="flex gap-6 overflow-x-auto px-4 md:px-8"
-        style={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          WebkitOverflowScrolling: "touch",
-        }}
+        className="flex gap-6 overflow-x-auto px-4 md:px-8 md:py-5 touch-none select-none"
+        style={scrollStyles}
       >
         {fullRow2.map((proj, i) => (
           <motion.div
@@ -123,6 +124,13 @@ const Projects = () => {
             />
           </motion.div>
         ))}
+      </div>
+
+      {/* Mobile-only button */}
+      <div className="md:hidden flex justify-center mt-10">
+        <button className="border border-[#002bba] px-5 py-2 rounded-full text-sm hover:bg-[#002bba] hover:text-white transition duration-300">
+          View All ↗
+        </button>
       </div>
     </section>
   );
