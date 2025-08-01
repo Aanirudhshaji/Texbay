@@ -22,7 +22,7 @@ const Faq = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
-          <h2 className="text-4xl text-center md:text-left sm:text-5xl font-roboto font-medium  text-[#0059FF] leading-snug">
+          <h2 className="text-4xl text-center md:text-left sm:text-5xl font-roboto font-medium  text-[#002bba] leading-snug">
             Frequently asked<br /> questions
           </h2>
           <p className="text-sm sm:text-base text-gray-600 text-center sm:text-left font-poppins md-8">
@@ -42,7 +42,7 @@ const Faq = () => {
               <div className="flex gap-5 w-full">
                 <span className="text-sm text-gray-500 font-mono">{item.id}</span>
                 <div className="flex flex-col w-full">
-                  <h4 className="text-base sm:text-lg text-black font-normal group-hover:text-[#0059FF]">
+                  <h4 className="text-base sm:text-lg text-black font-normal group-hover:text-[#002bba]">
                     {item.question}
                   </h4>
                   {openIndex === index && (

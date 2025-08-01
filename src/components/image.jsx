@@ -1,81 +1,64 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// Import background image
+import BG1 from "../assets/BG1.jpeg"; // Make sure to provide the correct path
+
+// Register ScrollTrigger plugin for GSAP
 gsap.registerPlugin(ScrollTrigger);
 
-const ImageScrolling = () => {
-  const containerRef = useRef(null);
-  const scrollRef = useRef(null);
-
+const ScrollAnimation = () => {
   useEffect(() => {
-    const container = containerRef.current;
-    const scroll = scrollRef.current;
+    // Parallax effect for background
+    gsap.to(".scroll-container", {
+      scrollTrigger: {
+        trigger: ".scroll-container", // Scroll-triggers the entire container
+        start: "top top", // Start when the top of the container hits the top of the viewport
+        end: "bottom top", // End when the bottom of the container hits the top of the viewport
+        scrub: true, // Synchronize the animation with the scroll position
+      },
+      backgroundPosition: "center 100%", // Create the parallax effect by changing the background position
+    });
 
-    const totalScrollWidth = scroll.scrollWidth - container.offsetWidth;
-    const scrollLength = totalScrollWidth + window.innerWidth;
-
-    const startValue =
-      window.innerWidth < 768 ? 'center center' : 'center center';
-
-    const ctx = gsap.context(() => {
-      gsap.to(scroll, {
-        x: () => `-${totalScrollWidth}px`,
-        ease: 'none',
+    // Scroll-triggered text change with delay
+    gsap.fromTo(
+      ".content",
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5, // Adding delay to the animation
         scrollTrigger: {
-          trigger: container,
-          start: startValue,
-          end: () => `+=${scrollLength}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          markers: false,
+          trigger: ".scroll-container", // Scroll-triggers the entire container
+          start: "top 80%", // Start when the top of the section comes into view
+          end: "bottom top", // End when the section reaches the top of the viewport
+          scrub: true, // Smooth scroll-triggered animation
         },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
+      }
+    );
   }, []);
 
-  const images = [
-    'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1611926653458-09294b3142f5?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1581091012184-7acb998ac5cd?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1634746717890-6f86eeb8aaf8?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1612178991451-1f52ba9b31cb?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80',
-  ];
-
   return (
-    <section className="relative w-full bg-white">
-      <div
-        ref={containerRef}
-        className="relative w-full h-[300px] md:h-[400px] overflow-hidden"
-      >
-        <div
-          ref={scrollRef}
-          className="flex gap-6 w-max h-full px-4 will-change-transform pointer-events-none"
-        >
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 w-64 md:w-96 h-64 md:h-96 overflow-hidden shadow-lg pointer-events-auto"
-            >
-              <img
-                src={image}
-                alt={`Tech Slide ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300"
-                loading="lazy"
-              />
-            </div>
-          ))}
+    <div
+      className="scroll-container relative h-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(${BG1})` }} // Static background image
+    >
+      <div className="text text-white text-4xl font-bold absolute inset-0 flex items-center justify-center">
+        <div className="content opacity-0">
+          <h1>MANUFACTURED LOCALLY</h1>
         </div>
+        <div className="content opacity-0">
+          <h1>SUSTAINABLE COOLING SOLUTIONS</h1>
+        </div>
+        {/* Add more content divs as needed */}
       </div>
-    </section>
+    </div>
   );
 };
 
-export default ImageScrolling;
+export default ScrollAnimation;

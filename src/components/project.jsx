@@ -1,0 +1,131 @@
+import React, { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+
+import img1 from "../assets/embedded.webp";
+import img2 from "../assets/branding.webp";
+import img3 from "../assets/marketing.webp";
+import img4 from "../assets/webdesign.webp";
+
+const baseProjects = [
+  { id: 1, image: img1 },
+  { id: 2, image: img2 },
+  { id: 3, image: img3 },
+  { id: 4, image: img4 },
+];
+
+const Projects = () => {
+  const row1Ref = useRef(null);
+  const row2Ref = useRef(null);
+
+  useEffect(() => {
+    const setupScroll = (ref, direction = 1, speed = 0.5) => {
+      const container = ref.current;
+      if (!container) return;
+
+      const scroll = () => {
+        container.scrollLeft += direction * speed;
+        if (
+          direction > 0 &&
+          container.scrollLeft >= container.scrollWidth - container.clientWidth
+        ) {
+          container.scrollLeft = 0;
+        }
+        if (direction < 0 && container.scrollLeft <= 0) {
+          container.scrollLeft = container.scrollWidth;
+        }
+      };
+
+      const interval = setInterval(scroll, 20); // Slower interval for better performance
+      return () => clearInterval(interval);
+    };
+
+    const stopScroll1 = setupScroll(row1Ref, 1, 0.5);
+    const stopScroll2 = setupScroll(row2Ref, -1, 0.5);
+
+    return () => {
+      stopScroll1?.();
+      stopScroll2?.();
+    };
+  }, []);
+
+  const cardClass =
+    "min-w-[260px] sm:min-w-[320px] md:min-w-[360px] h-[200px] sm:h-[260px] md:h-[300px] rounded-2xl overflow-hidden shadow-md flex-shrink-0";
+
+  const fullRow1 = [...baseProjects, ...baseProjects, ...baseProjects];
+  const fullRow2 = [...baseProjects, ...baseProjects, ...baseProjects];
+
+  return (
+    <section className="w-full py-20 bg-white text-black">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto mb-10 flex items-center justify-between flex-wrap px-4 md:px-2">
+        <div className="mb-4 md:mb-0">
+          <p className="text-xs uppercase tracking-widest font-semibold text-[#000000] mb-1">
+            Projects
+          </p>
+          <h2 className="text-2xl text-[#002bba] sm:text-4xl md:text-5xl font-roboto font-semibold leading-tight max-w-xl">
+            Captivate your audience’s <span>senses, non-stop</span>
+          </h2>
+        </div>
+        <button className="border border-[#002bba] px-5 py-2 rounded-full text-sm hover:bg-[#002bba] hover:text-white transition duration-300">
+          View All ↗
+        </button>
+      </div>
+
+      {/* Row 1 */}
+      <div
+        ref={row1Ref}
+        className="flex gap-6 overflow-x-auto mb-8 px-4 md:px-8"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
+        {fullRow1.map((proj, i) => (
+          <motion.div
+            key={`row1-${i}`}
+            className={cardClass}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <img
+              src={proj.image}
+              alt={`Project ${proj.id}`}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Row 2 */}
+      <div
+        ref={row2Ref}
+        className="flex gap-6 overflow-x-auto px-4 md:px-8"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
+        {fullRow2.map((proj, i) => (
+          <motion.div
+            key={`row2-${i}`}
+            className={cardClass}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <img
+              src={proj.image}
+              alt={`Project ${proj.id}`}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Projects;

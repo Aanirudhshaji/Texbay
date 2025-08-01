@@ -25,7 +25,7 @@ const Services = () => {
             <p className="text-[#000000] text-sm font-medium mb-3">
               Services
             </p>
-            <h2 className="text-2xl text-[#0059FF] sm:text-4xl md:text-5xl font-roboto font-bold leading-tight">
+            <h2 className="text-2xl text-[#002bba] sm:text-4xl md:text-5xl font-roboto font-bold leading-tight">
               We Build, Brand, <br />
               and Innovate for You
             </h2>
@@ -33,7 +33,7 @@ const Services = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm hover:bg-blue-700 transition-all">
+            <button className="bg-[#002bba] text-white px-6 py-2 rounded-full text-sm hover:bg-blue-700 transition-all">
               Let’s discuss
             </button>
           </div>
@@ -55,7 +55,7 @@ const Services = () => {
                   <span className="text-xs text-gray-600 font-semibold">{`(${service.id})`}</span>
                   <h3
                     className={`text-base sm:text-lg md:text-6xl font-semibold font-roboto md:font-medium leading-tight transition-colors duration-300 ${
-                      hoveredIndex === index ? "text-blue-600" : "text-black"
+                      hoveredIndex === index ? "text-[#002bba]" : "text-black"
                     }`}
                   >
                     {service.title}
@@ -66,7 +66,7 @@ const Services = () => {
                 <FiArrowRight
                   className={`text-xl sm:text-2xl md:text-4xl transition-all duration-300 ${
                     hoveredIndex === index
-                      ? "text-blue-600 translate-x-1 opacity-100"
+                      ? "text-[#002bba] translate-x-1 opacity-100"
                       : "text-black opacity-50"
                   }`}
                 />

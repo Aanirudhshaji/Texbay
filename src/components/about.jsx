@@ -47,11 +47,11 @@ const About = () => {
       <div className="max-w-7xl mx-auto relative z-20 grid grid-cols-1 md:grid-cols-2 items-start">
         {/* Left side */}
         <div className="text-center md:text-left">
-          <h4 className="text-[#396FD4] text-sm text-left sm:text-base font-medium mb-3">
+          <h4 className="text-[#000000] text-sm text-left sm:text-base font-medium mb-3">
             About Us
           </h4>
 
-          <h2 className="text-2xl text-[#0059FF] sm:text-4xl md:text-5xl text-left font-bold leading-snug sm:leading-tight mb-4">
+          <h2 className="text-2xl text-[#002bba] sm:text-4xl md:text-5xl text-left font-bold leading-snug sm:leading-tight mb-4">
             A unique blend of strategy,{" "}
             <span className="relative inline-block">
               marketing
@@ -95,7 +95,7 @@ const About = () => {
             className="flex flex-row justify-left items-center gap-2 md:gap-13 text-center overflow-x-auto px-2 no-scrollbar mb-6"
           >
             <div className="min-w-[90px] flex-shrink-0">
-              <h3 className="text-3xl sm:text-7xl font-semibold text-[#0059FF] whitespace-nowrap">
+              <h3 className="text-3xl sm:text-7xl font-semibold text-[#002bba] whitespace-nowrap">
                 {inView && <CountUp end={3} duration={2} />}+
               </h3>
               <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
@@ -106,7 +106,7 @@ const About = () => {
             <div className="h-10 border-l border-gray-300 mx-2" />
 
             <div className="min-w-[90px] flex-shrink-0">
-              <h3 className="text-3xl sm:text-7xl font-semibold text-[#0059FF] whitespace-nowrap">
+              <h3 className="text-3xl sm:text-7xl font-semibold text-[#002bba] whitespace-nowrap">
                 {inView && <CountUp end={15} duration={2} />}+
               </h3>
               <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
@@ -117,7 +117,7 @@ const About = () => {
             <div className="h-10 border-l border-gray-300 mx-2" />
 
             <div className="min-w-[90px] flex-shrink-0">
-              <h3 className="text-3xl sm:text-7xl font-semibold text-[#0059FF] whitespace-nowrap">
+              <h3 className="text-3xl sm:text-7xl font-semibold text-[#002bba] whitespace-nowrap">
                 {inView && <CountUp end={20} duration={2} />}+
               </h3>
               <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
