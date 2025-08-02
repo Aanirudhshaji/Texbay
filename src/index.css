@@ -25,4 +25,8 @@ html, body {
   scrollbar-width: none;
 }
 
+[data-scroll-container] {
+  will-change: transform;
+}
+
 

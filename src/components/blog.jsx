@@ -4,11 +4,14 @@ import cloudImg from "../assets/bank.png";
 
 const Blog = () => {
   return (
-    <section className="w-full bg-white py-16 px-6 md:px-20">
+    <section className="w-full bg-white py-8 md:py-16 px-6 md:px-20">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
         {/* Left Section */}
         <div className="lg:w-1/3 w-full flex flex-col items-start lg:items-start text-center lg:text-left">
           <div className="w-full">
+            <span className="text-black uppercase tracking-wider text-sm font-medium">
+                  Blogs
+                </span>
             <h2 className="text-4xl font-semibold text-[#002bba] mb-4 leading-tight">
               Read our latest Blog
             </h2>

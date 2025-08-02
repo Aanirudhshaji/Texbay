@@ -56,7 +56,7 @@ const Scroll1 = () => {
             variants={fadeZoomUp}
             custom={2}
           >
-            Oper's digital solution integrates seamlessly with your core banking to provide a coherent user experience
+            Oper's digital solution integrates seamlessly with your <br /> core banking to provide a coherent user experience
           </motion.p>
 
           {/* Static button, no animation */}

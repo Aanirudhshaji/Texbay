@@ -87,7 +87,7 @@ const Projects = () => {
   );
 
   return (
-    <section className="w-full py-20 bg-white text-black">
+    <section className="w-full py-8 md:py-16 bg-white text-black">
       {/* Header with desktop button */}
       <div className="max-w-7xl mx-auto mb-10 px-4 md:px-2 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>

@@ -36,7 +36,7 @@ const Process = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-8 md:py-16">
       <div className="max-w-9xl mx-auto px-4 md:px-10 lg:px-20">
         <div className="text-center mb-14">
           <h4 className="text-[#000000] text-sm font-medium mb-3">

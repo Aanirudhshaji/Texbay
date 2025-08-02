@@ -18,7 +18,7 @@ const Faq = () => {
   };
 
   return (
-    <section className="w-full px-4 md:px-10 lg:px-20 py-10 bg-white">
+    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
