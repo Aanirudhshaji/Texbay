@@ -11,6 +11,7 @@ import Projects from './components/project';
 import Faq from './components/faq';
 import Blog from './components/blog';
 import CTA from './components/cta';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Faq />
       <Blog />
       <CTA />
+      <Footer />
     </div>
   );
 }

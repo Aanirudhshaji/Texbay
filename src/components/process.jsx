@@ -47,14 +47,14 @@ const Process = () => {
     cards.forEach((card, i) => {
       gsap.fromTo(
         card,
-        { opacity: 0, y: 40, scale: 0.8 }, // Adding scale for more effect
+        { opacity: 0, y: 20, scale: 0.95 },
         {
           opacity: 1,
           y: 0,
-          scale: 1,  // Scaling up to full size
-          duration: 0.3, // Increased duration for slower animation
-          delay: i * 0.3, // Increased delay to space out animations
-          ease: "back.out(1.7)", // Use a 'back' easing for more dynamic animation
+          scale: 1,
+          duration: 0.15,
+          delay: i * 0.1,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: card,
             start: "top 85%",
@@ -66,14 +66,14 @@ const Process = () => {
     iconRefs.current.forEach((icon, i) => {
       gsap.fromTo(
         icon,
-        { scale: 0.5, rotate: -20, opacity: 0 },
+        { scale: 0.7, rotate: -10, opacity: 0 },
         {
           scale: 1,
           rotate: 0,
           opacity: 1,
-          duration: 1, // Increased duration for slower icon animation
-          ease: "back.out(2)", // Using a stronger easing effect for a bounce-like feel
-          delay: i * 0.3, // Increased delay to stagger animations
+          duration: 0.4,
+          delay: i * 0.15,
+          ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: icon,
             start: "top 90%",
@@ -86,6 +86,7 @@ const Process = () => {
   return (
     <section className="bg-white py-16">
       <div className="max-w-9xl mx-auto px-4 md:px-10 lg:px-20">
+        {/* Title */}
         <div className="text-center mb-14">
           <h4 className="text-[#000000] text-sm font-medium mb-3">
             How It Works
@@ -98,6 +99,7 @@ const Process = () => {
           </p>
         </div>
 
+        {/* Cards */}
         <div
           ref={containerRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-gray-300"
