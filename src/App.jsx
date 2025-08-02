@@ -13,10 +13,11 @@ import Blog from './components/blog';
 import Testimonial from './components/testimonial';
 import CTA from './components/cta';
 import Footer from './components/footer';
+import SmoothScrollWrapper from './components/SmoothScrollWrapper';
 
 function App() {
   return (
-    <div className="App">
+    <SmoothScrollWrapper>
       <Navbar />
       <Hero />
       <Scroll />
@@ -31,7 +32,7 @@ function App() {
       <CTA />
       <Blog />
       <Footer />
-    </div>
+    </SmoothScrollWrapper>
   );
 }
 

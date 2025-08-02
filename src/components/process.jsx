@@ -1,13 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState } from "react";
 
 import r1 from "../assets/r1.png";
 import r2 from "../assets/r2.png";
 import r3 from "../assets/r3.png";
 import r4 from "../assets/r4.png";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
@@ -37,56 +33,11 @@ const steps = [
 ];
 
 const Process = () => {
-  const containerRef = useRef(null);
-  const iconRefs = useRef([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  useEffect(() => {
-    const cards = containerRef.current.querySelectorAll(".step-card");
-
-    cards.forEach((card, i) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 20, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.15,
-          delay: i * 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-          },
-        }
-      );
-    });
-
-    iconRefs.current.forEach((icon, i) => {
-      gsap.fromTo(
-        icon,
-        { scale: 0.7, rotate: -10, opacity: 0 },
-        {
-          scale: 1,
-          rotate: 0,
-          opacity: 1,
-          duration: 0.4,
-          delay: i * 0.15,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: icon,
-            start: "top 90%",
-          },
-        }
-      );
-    });
-  }, []);
 
   return (
     <section className="bg-white py-16">
       <div className="max-w-9xl mx-auto px-4 md:px-10 lg:px-20">
-        {/* Title */}
         <div className="text-center mb-14">
           <h4 className="text-[#000000] text-sm font-medium mb-3">
             How It Works
@@ -99,11 +50,7 @@ const Process = () => {
           </p>
         </div>
 
-        {/* Cards */}
-        <div
-          ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-gray-300"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-gray-300">
           {steps.map((step, index) => {
             const isHovered = hoveredIndex !== null;
             const isActive = hoveredIndex === index;
@@ -116,7 +63,7 @@ const Process = () => {
                 className={`step-card border-r border-b border-gray-300 last:border-r-0 lg:last:border-r lg:border-b-0 p-8 text-left transition-all duration-300
                   ${
                     isHovered && !isActive
-                      ? "opacity-30 blur-sm scale-[0.98]"
+                      ? "opacity-80 blur-sm scale-[0.98]"
                       : "opacity-100 blur-0"
                   }
                   ${isActive ? "border-l-0 border-r-0" : ""}
@@ -125,7 +72,6 @@ const Process = () => {
                 <div className="flex justify-left mb-5">
                   <img
                     src={step.icon}
-                    ref={(el) => (iconRefs.current[index] = el)}
                     alt={step.title}
                     className="w-12 h-12 object-contain"
                   />

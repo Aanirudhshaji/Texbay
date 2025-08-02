@@ -32,7 +32,7 @@ const Footer = () => {
 
       {/* === Top Scrolling Text === */}
       <div className="w-full bg-[#000000] overflow-hidden marquee py-3 cursor-pointer">
-        <div className="marquee-content text-3xl sm:text-8xl font-bold text-white tracking-wide gap-12 px-6">
+        <div className="marquee-content text-6xl sm:text-6xl font-medium text-white tracking-wide gap-12 px-6">
           {Array(6).fill(0).map((_, index) => (
             <span key={index}>
               Texbay Media <span className="underline">Contact Us</span> ↗

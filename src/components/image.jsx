@@ -1,61 +1,64 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import BG1 from "../assets/BG1.jpeg";
 
-// Import background image
-import BG1 from "../assets/BG1.jpeg"; // Make sure to provide the correct path
-
-// Register ScrollTrigger plugin for GSAP
 gsap.registerPlugin(ScrollTrigger);
 
 const ScrollAnimation = () => {
   useEffect(() => {
-    // Parallax effect for background
-    gsap.to(".scroll-container", {
+    // Parallax background animation on a separate layer
+    gsap.to(".bg-layer", {
+      y: 100,
+      ease: "none",
       scrollTrigger: {
-        trigger: ".scroll-container", // Scroll-triggers the entire container
-        start: "top top", // Start when the top of the container hits the top of the viewport
-        end: "bottom top", // End when the bottom of the container hits the top of the viewport
-        scrub: true, // Synchronize the animation with the scroll position
+        trigger: ".scroll-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 0.5,
       },
-      backgroundPosition: "center 100%", // Create the parallax effect by changing the background position
     });
 
-    // Scroll-triggered text change with delay
-    gsap.fromTo(
-      ".content",
-      {
-        opacity: 0,
-        y: 50,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.5, // Adding delay to the animation
-        scrollTrigger: {
-          trigger: ".scroll-container", // Scroll-triggers the entire container
-          start: "top 80%", // Start when the top of the section comes into view
-          end: "bottom top", // End when the section reaches the top of the viewport
-          scrub: true, // Smooth scroll-triggered animation
-        },
-      }
-    );
+    // Text content animation
+    gsap.utils.toArray(".content-block").forEach((block, i) => {
+      gsap.fromTo(
+        block,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: block,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
+
+    ScrollTrigger.refresh();
   }, []);
 
   return (
-    <div
-      className="scroll-container relative h-screen bg-cover bg-center"
-      style={{ backgroundImage: `url(${BG1})` }} // Static background image
-    >
-      <div className="text text-white text-4xl font-bold absolute inset-0 flex items-center justify-center">
-        <div className="content opacity-0">
-          <h1>MANUFACTURED LOCALLY</h1>
+    <div className="scroll-section relative min-h-screen overflow-hidden">
+      {/* Background Parallax Layer */}
+      <div
+        className="bg-layer absolute inset-0 bg-cover bg-center -z-10"
+        style={{
+          backgroundImage: `url(${BG1})`,
+          backgroundSize: "cover",
+        }}
+      ></div>
+
+      {/* Foreground Content */}
+      <div className="flex flex-col justify-center items-center h-full space-y-10 px-4 py-24">
+        <div className="content-block text-white text-3xl sm:text-4xl md:text-5xl font-bold text-center">
+          MANUFACTURED LOCALLY
         </div>
-        <div className="content opacity-0">
-          <h1>SUSTAINABLE COOLING SOLUTIONS</h1>
+        <div className="content-block text-white text-3xl sm:text-4xl md:text-5xl font-bold text-center">
+          SUSTAINABLE COOLING SOLUTIONS
         </div>
-        {/* Add more content divs as needed */}
       </div>
     </div>
   );
