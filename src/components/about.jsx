@@ -92,7 +92,7 @@ const About = () => {
           {/* Stats */}
           <div
             ref={ref}
-            className="flex flex-row justify-left items-center gap-2 md:gap-13 text-center overflow-x-auto px-2 no-scrollbar mb-6"
+            className="flex flex-row justify-between items-center gap-2 md:gap-13 text-center px-2 mb-6 w-full overflow-x-hidden"
           >
             <div className="min-w-[90px] flex-shrink-0">
               <h3 className="text-3xl sm:text-7xl font-semibold text-[#002bba] whitespace-nowrap">

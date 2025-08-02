@@ -54,7 +54,7 @@ const Services = () => {
                 <div className="flex items-center gap-3">
                   <span className="text-xs text-gray-600 font-semibold">{`(${service.id})`}</span>
                   <h3
-                    className={`text-base sm:text-lg md:text-6xl font-semibold font-roboto md:font-medium leading-tight transition-colors duration-300 ${
+                    className={`text-xl sm:text-lg md:text-6xl font-semibold font-roboto md:font-medium leading-tight transition-colors duration-300 ${
                       hoveredIndex === index ? "text-[#002bba]" : "text-black"
                     }`}
                   >
