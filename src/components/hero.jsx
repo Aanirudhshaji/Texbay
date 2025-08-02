@@ -42,13 +42,13 @@ const Hero = () => {
       videoRef.current.muted = false;
       videoRef.current.volume = 1;
     }
-  }, []);
+  }, [isDesktop]);
 
   const handlePointerUp = useCallback(() => {
     if (isDesktop && videoRef.current) {
       videoRef.current.muted = true;
     }
-  }, []);
+  }, [isDesktop]);
 
   return (
     <section
@@ -57,7 +57,6 @@ const Hero = () => {
       onMouseUp={handlePointerUp}
       onMouseLeave={handlePointerUp}
     >
-      {/* Inline keyframe animation */}
       <style>
         {`
           @keyframes spin360 {
@@ -79,7 +78,7 @@ const Hero = () => {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
         >
           <source src={heroVideo} type="video/mp4" />
           Your browser does not support the video tag.

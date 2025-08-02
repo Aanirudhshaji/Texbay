@@ -18,47 +18,73 @@ const Projects = () => {
   const row2Ref = useRef(null);
 
   useEffect(() => {
-    const setupScroll = (ref, direction = 1, speed = 0.5) => {
+    let animationFrameId1, animationFrameId2;
+
+    const setupSmoothScroll = (ref, direction = 1, speed = 0.5) => {
       const container = ref.current;
       if (!container || container.scrollWidth <= container.clientWidth) return;
 
       const scroll = () => {
         container.scrollLeft += direction * speed;
+
         if (
           direction > 0 &&
           container.scrollLeft >= container.scrollWidth - container.clientWidth
         ) {
           container.scrollLeft = 0;
-        }
-        if (direction < 0 && container.scrollLeft <= 0) {
+        } else if (direction < 0 && container.scrollLeft <= 0) {
           container.scrollLeft = container.scrollWidth;
         }
+
+        return requestAnimationFrame(scroll);
       };
 
-      const interval = setInterval(scroll, 20);
-      return () => clearInterval(interval);
+      return scroll();
     };
 
-    const stopScroll1 = setupScroll(row1Ref, 1, 0.5);
-    const stopScroll2 = setupScroll(row2Ref, -1, 0.5);
+    animationFrameId1 = setupSmoothScroll(row1Ref, 1, 0.5);
+    animationFrameId2 = setupSmoothScroll(row2Ref, -1, 0.5);
 
     return () => {
-      stopScroll1?.();
-      stopScroll2?.();
+      cancelAnimationFrame(animationFrameId1);
+      cancelAnimationFrame(animationFrameId2);
     };
   }, []);
 
   const cardClass =
     "min-w-[260px] sm:min-w-[320px] md:min-w-[360px] h-[200px] sm:h-[260px] md:h-[300px] rounded-2xl overflow-hidden shadow-md flex-shrink-0";
 
-  const fullRow1 = [...baseProjects, ...baseProjects, ...baseProjects, ...baseProjects];
-  const fullRow2 = [...baseProjects, ...baseProjects, ...baseProjects, ...baseProjects];
+  const fullRow = [...baseProjects, ...baseProjects, ...baseProjects, ...baseProjects];
 
   const scrollStyles = {
     scrollbarWidth: "none",
     msOverflowStyle: "none",
     WebkitOverflowScrolling: "touch",
   };
+
+  const renderRow = (rowData, ref, keyPrefix) => (
+    <div
+      ref={ref}
+      className="flex gap-6 overflow-x-auto px-4 md:px-8 py-5 touch-none select-none"
+      style={scrollStyles}
+    >
+      {rowData.map((proj, i) => (
+        <motion.div
+          key={`${keyPrefix}-${i}`}
+          className={cardClass}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          <img
+            src={proj.image}
+            alt={`Project ${proj.id}`}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </motion.div>
+      ))}
+    </div>
+  );
 
   return (
     <section className="w-full py-20 bg-white text-black">
@@ -72,7 +98,6 @@ const Projects = () => {
             Captivate your audience’s <span>senses, non-stop</span>
           </h2>
         </div>
-        {/* Desktop button only */}
         <div className="hidden md:flex">
           <button className="border border-[#002bba] px-5 py-2 rounded-full text-sm hover:bg-[#002bba] hover:text-white transition duration-300">
             View All ↗
@@ -80,51 +105,9 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Row 1 */}
-      <div
-        ref={row1Ref}
-        className="flex gap-6 overflow-x-auto mb-8 px-4 md:px-8 md:py-5 touch-none select-none"
-        style={scrollStyles}
-      >
-        {fullRow1.map((proj, i) => (
-          <motion.div
-            key={`row1-${i}`}
-            className={cardClass}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <img
-              src={proj.image}
-              alt={`Project ${proj.id}`}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Row 2 */}
-      <div
-        ref={row2Ref}
-        className="flex gap-6 overflow-x-auto px-4 md:px-8 md:py-5 touch-none select-none"
-        style={scrollStyles}
-      >
-        {fullRow2.map((proj, i) => (
-          <motion.div
-            key={`row2-${i}`}
-            className={cardClass}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <img
-              src={proj.image}
-              alt={`Project ${proj.id}`}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </motion.div>
-        ))}
-      </div>
+      {/* Auto-scrolling rows */}
+      {renderRow(fullRow, row1Ref, "row1")}
+      {renderRow(fullRow, row2Ref, "row2")}
 
       {/* Mobile-only button */}
       <div className="md:hidden flex justify-center mt-10">
