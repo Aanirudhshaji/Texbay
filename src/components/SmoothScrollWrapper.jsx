@@ -9,7 +9,7 @@ const SmoothScrollWrapper = ({ children }) => {
     const scroll = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
-      lerp: 0.07,
+      lerp: 0.05,
     });
 
     return () => scroll.destroy();

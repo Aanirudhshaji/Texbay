@@ -3,7 +3,7 @@ import Navbar from './components/navbar';
 import Hero from './components/hero';
 import Scroll from './components/scroll';
 import About from './components/about';
-import WhatWeDo from './components/whatwedo';
+import Whatwedo from './components/whatwedo';
 import Services from './components/services';
 import Process from './components/process';
 import Scroll1 from './components/scroll1';
@@ -22,7 +22,7 @@ function App() {
       <Hero />
       <Scroll />
       <About />
-      <WhatWeDo />
+      <Whatwedo />
       <Services />
       <Process />
       <Scroll1 />
