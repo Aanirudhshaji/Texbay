@@ -99,7 +99,7 @@ const About = () => {
                 {inView && <CountUp end={3} duration={2} />}+
               </h3>
               <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
-                Years Experience
+                Years <br className="block md:hidden" /> Experience
               </p>
             </div>
 
@@ -110,7 +110,7 @@ const About = () => {
                 {inView && <CountUp end={15} duration={2} />}+
               </h3>
               <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
-                Global Presence
+                Global <br className="block md:hidden" /> Presence
               </p>
             </div>
 
@@ -121,7 +121,7 @@ const About = () => {
                 {inView && <CountUp end={20} duration={2} />}+
               </h3>
               <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
-                Projects Over
+                Projects <br className="block md:hidden" /> Over
               </p>
             </div>
           </div>
@@ -129,7 +129,7 @@ const About = () => {
       </div>
 
       {/* Mobile-only Button */}
-      <div className="mt-6 md:hidden">
+      <div className="mt-6 md:hidden flex justify-center">
         <CustomButton />
       </div>
     </section>
