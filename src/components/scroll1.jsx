@@ -2,15 +2,17 @@ import React from "react";
 import bgVideo from "../assets/scroll.mp4";
 import { motion } from "framer-motion";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+// Animation variant for heading and paragraph
+const fadeZoomUp = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
   visible: (i = 1) => ({
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
-      delay: i * 0.15, // Slightly faster to keep flow natural
-      duration: 0.7,
-      ease: "easeOut",
+      delay: i * 0.2,
+      duration: 0.8,
+      ease: [0.25, 0.8, 0.25, 1],
     },
   }),
 };
@@ -39,8 +41,8 @@ const Scroll1 = () => {
             className="text-3xl sm:text-5xl md:text-6xl font-light leading-tight font-roboto"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
+            viewport={{ once: true, amount: 0.6 }}
+            variants={fadeZoomUp}
             custom={1}
           >
             White-label mortgage<br />software to fit your needs
@@ -50,23 +52,19 @@ const Scroll1 = () => {
             className="text-base sm:text-lg md:text-xl font-medium"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
+            viewport={{ once: true, amount: 0.6 }}
+            variants={fadeZoomUp}
             custom={2}
           >
             Oper's digital solution integrates seamlessly with your core banking to provide a coherent user experience
           </motion.p>
 
-          <motion.button
+          {/* Static button, no animation */}
+          <button
             className="mt-4 px-6 py-3 rounded-full backdrop-blur-md bg-white/10 border border-white/30 text-white font-semibold shadow-lg hover:bg-white/20 transition duration-300"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            custom={4} // Slightly after paragraph for flow
           >
             Let’s Collaborate
-          </motion.button>
+          </button>
         </div>
       </div>
     </section>

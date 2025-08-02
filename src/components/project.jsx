@@ -65,7 +65,7 @@ const Projects = () => {
   const renderRow = (rowData, ref, keyPrefix) => (
     <div
       ref={ref}
-      className="flex gap-6 overflow-x-auto px-4 md:px-8 py-5 touch-none select-none"
+      className="flex gap-6 overflow-x-auto px-4 md:px-8 py-5 select-none md:touch-none"
       style={scrollStyles}
     >
       {rowData.map((proj, i) => (
