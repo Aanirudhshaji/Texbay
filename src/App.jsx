@@ -26,8 +26,8 @@ function App() {
       <Scroll1 />
       <Projects />
       <Faq />
-      <Blog />
       <CTA />
+      <Blog />
       <Footer />
     </div>
   );

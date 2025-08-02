@@ -8,8 +8,8 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.2,
-      duration: 0.8,
+      delay: i * 0.15, // Slightly faster to keep flow natural
+      duration: 0.7,
       ease: "easeOut",
     },
   }),
@@ -26,9 +26,10 @@ const Scroll1 = () => {
         loop
         muted
         playsInline
+        loading="lazy"
       />
 
-      {/* Dark Overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10" />
 
       {/* Content */}
@@ -62,7 +63,7 @@ const Scroll1 = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            custom={3}
+            custom={4} // Slightly after paragraph for flow
           >
             Let’s Collaborate
           </motion.button>
