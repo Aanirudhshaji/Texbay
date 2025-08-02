@@ -10,6 +10,7 @@ import Scroll1 from './components/scroll1';
 import Projects from './components/project';
 import Faq from './components/faq';
 import Blog from './components/blog';
+import Testimonial from './components/testimonial';
 import CTA from './components/cta';
 import Footer from './components/footer';
 
@@ -26,6 +27,7 @@ function App() {
       <Scroll1 />
       <Projects />
       <Faq />
+      <Testimonial />
       <CTA />
       <Blog />
       <Footer />

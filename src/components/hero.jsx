@@ -88,7 +88,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center px-6 md:px-16 lg:px-20 pt-92">
+      <div className="relative z-10 h-full flex items-center px-6 md:px-16 lg:px-20 pt-72">
         <header className="max-w-2xl space-y-4">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-roboto font-medium leading-tight">
             <span ref={(el) => (headingRef.current[0] = el)}>Creating new</span>
