@@ -1,66 +1,62 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const KeyholeAnimation = () => {
-  const keyholeRef = useRef(null);
+const Kompetenzen = () => {
+  const headingRef = useRef(null);
+  const paraRef = useRef(null);
 
   useEffect(() => {
-    const circle = keyholeRef.current;
-
     gsap.fromTo(
-      circle,
-      { scale: 0.2 },
+      headingRef.current.querySelector("span"),
+      { yPercent: 80, opacity: 0 },
       {
-        scale: 6,
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.8,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: circle,
-          start: "top center",
-          end: "bottom top",
-          scrub: 1,
-          pin: true,
+          trigger: headingRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      paraRef.current,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        delay: 0.3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 80%",
         },
       }
     );
   }, []);
 
   return (
-    <section className="h-[300vh] relative bg-gray-900 text-white overflow-hidden">
-      {/* === Embedded CSS Styles === */}
-      <style>
-        {`
-          .keyhole {
-            position: relative;
-            z-index: 10;
-            mix-blend-mode: screen;
-            pointer-events: none;
-          }
+    <section className="py-20 px-4">
+      <h2
+        ref={headingRef}
+        className="text-4xl font-bold overflow-hidden inline-block"
+      >
+        <span className="block">{/* Title text */}Design und Technologie</span>
+      </h2>
 
-          .text-content {
-            color: white;
-            max-width: 100%;
-          }
-        `}
-      </style>
-
-      <div className="sticky top-0 h-screen flex items-center justify-center">
-        <div
-          ref={keyholeRef}
-          className="keyhole bg-white rounded-full w-40 h-40 z-10"
-        ></div>
-
-        <div className="absolute text-content text-center z-0 px-4">
-          <h1 className="text-4xl font-bold">Welcome to the Future</h1>
-          <p className="mt-4 text-lg max-w-md mx-auto">
-            Scroll to peek through the keyhole and reveal what lies ahead.
-          </p>
-        </div>
-      </div>
+      <p
+        ref={paraRef}
+        className="mt-4 text-lg opacity-0"
+      >
+        Helga ist eine Digitalagentur, die dich begleitet und alles mitbringt…
+      </p>
     </section>
   );
 };
 
-export default KeyholeAnimation;
+export default Kompetenzen;
