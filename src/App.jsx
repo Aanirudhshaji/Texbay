@@ -14,25 +14,29 @@ import Testimonial from './components/testimonial';
 import CTA from './components/cta';
 import Footer from './components/footer';
 import SmoothScrollWrapper from './components/SmoothScrollWrapper';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
-    <SmoothScrollWrapper>
-      <Navbar />
-      <Hero />
-      <Scroll />
-      <About />
-      <Whatwedo />
-      <Services />
-      <Process />
-      <Scroll1 />
-      <Projects />
-      <Faq />
-      <Testimonial />
-      <CTA />
-      <Blog />
-      <Footer />
-    </SmoothScrollWrapper>
+    <>
+      <CustomCursor /> {/* 🔥 Move OUTSIDE the scroll wrapper */}
+      <SmoothScrollWrapper>
+        <Navbar />
+        <Hero />
+        <Scroll />
+        <About />
+        <Whatwedo />
+        <Services />
+        <Process />
+        <Scroll1 />
+        <Projects />
+        <Faq />
+        <Testimonial />
+        <CTA />
+        <Blog />
+        <Footer />
+      </SmoothScrollWrapper>
+    </>
   );
 }
 
