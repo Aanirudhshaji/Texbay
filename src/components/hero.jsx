@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useCallback } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import { gsap } from "gsap";
 import heroVideo from "../assets/hero.mp4";
+import loaderImage from "../assets/loder.png";
+
 
 const Hero = () => {
   const headingRef = useRef([]);
@@ -57,28 +59,18 @@ const Hero = () => {
       onMouseUp={handlePointerUp}
       onMouseLeave={handlePointerUp}
     >
-      <style>
-        {`
-          @keyframes spin360 {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-          .spin-circle {
-            animation: spin360 6s linear infinite;
-          }
-        `}
-      </style>
-
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
+          poster={loaderImage}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
+          aria-label="Background branding video"
         >
           <source src={heroVideo} type="video/mp4" />
           Your browser does not support the video tag.
@@ -115,7 +107,7 @@ const Hero = () => {
       {/* CTA */}
       <div className="hidden sm:block absolute bottom-10 right-10 z-20">
         <div className="relative w-[120px] h-[120px]">
-          <div className="absolute inset-0 spin-circle">
+          <div className="absolute inset-0 animate-spin-slow">
             <svg viewBox="0 0 100 100" className="w-full h-full">
               <defs>
                 <path
@@ -140,7 +132,10 @@ const Hero = () => {
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <button className="bg-white/20 backdrop-blur-md w-18 h-18 rounded-full flex items-center justify-center">
+            <button
+              className="bg-white/20 backdrop-blur-md w-18 h-18 rounded-full flex items-center justify-center"
+              aria-label="Get in touch"
+            >
               <FiArrowUpRight className="text-white text-5xl" />
             </button>
           </div>
