@@ -19,9 +19,9 @@ import CustomCursor from './components/CustomCursor';
 function App() {
   return (
     <>
-      <CustomCursor /> {/* 🔥 Move OUTSIDE the scroll wrapper */}
+      <CustomCursor /> 
+      <Navbar />
       <SmoothScrollWrapper>
-        <Navbar />
         <Hero />
         <Scroll />
         <About />
