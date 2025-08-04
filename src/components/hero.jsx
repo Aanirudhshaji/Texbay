@@ -53,7 +53,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative w-full min-h-screen text-white overflow-hidden"
+      className="relative w-full h-[120vh] text-white overflow-hidden"
       onMouseDown={handlePointerDown}
       onMouseUp={handlePointerUp}
       onMouseLeave={handlePointerUp}
@@ -69,54 +69,69 @@ const Hero = () => {
           loop
           playsInline
           preload="none"
+          aria-label="Background branding video"
         >
           <source src={heroVideo} type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center min-h-screen px-6 sm:px-10 lg:px-20 py-16 sm:py-24">
-        <header className="w-full max-w-3xl space-y-6">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight">
+      <div className="relative z-10 h-full flex items-center px-6 md:px-16 lg:px-20 pt-40 sm:pt-56 md:pt-64 lg:pt-72">
+        <header className="max-w-3xl space-y-5">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-roboto font-medium leading-tight">
             <span ref={(el) => (headingRef.current[0] = el)}>Creating new</span>
             <br />
             <span ref={(el) => (headingRef.current[1] = el)}>
               possibilities for brands
             </span>
           </h1>
-
           <p
             ref={paraRef}
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 leading-relaxed max-w-xl"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200"
           >
-            An end-to-end digital growth platform that scales your brand through
-            targeted campaigns, real-time analytics, and smart automation tools
+            An end-to-end digital growth platform that scales <br /> your brand through
+            targeted campaigns, real-time analytics, <br /> and smart automation tools
             built for measurable success.
           </p>
 
           <a
             href="#"
-            className="inline-flex items-center justify-center gap-3 border border-white text-white px-5 py-2 sm:px-6 sm:py-3 rounded-full font-medium text-sm sm:text-base hover:bg-white hover:text-black transition-all duration-300"
+            className="inline-flex items-center justify-between gap-4 border-2 border-white text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base"
           >
             <span>Explore More</span>
-            <FiArrowUpRight className="text-lg sm:text-xl" />
           </a>
         </header>
       </div>
 
-      {/* Circular CTA Button */}
-      <div className="hidden sm:block absolute bottom-8 right-8 z-20">
-        <div className="relative w-[100px] h-[100px] md:w-[120px] md:h-[120px]">
-          <div className="absolute inset-0 animate-spin-slow">
+      {/* CTA */}
+      <div className="hidden sm:block absolute bottom-10 right-10 z-20">
+        <div className="relative w-[120px] h-[120px]">
+          {/* Circular Rotating Text */}
+          <div
+            className="absolute inset-0"
+            style={{
+              animation: "spin 10s linear infinite",
+              transformOrigin: "center center",
+            }}
+          >
             <svg viewBox="0 0 100 100" className="w-full h-full">
               <defs>
                 <path
                   id="circlePath"
-                  d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                  d="M 50, 50
+                    m -35, 0
+                    a 35,35 0 1,1 70,0
+                    a 35,35 0 1,1 -70,0"
                 />
               </defs>
-              <text fontSize="9" fill="white" fontWeight="bold">
+              <text
+                fontSize="9"
+                fill="white"
+                fontWeight="bold"
+                fontFamily="sans-serif"
+              >
                 <textPath xlinkHref="#circlePath" startOffset="0%">
                   • GET IN TOUCH • GET IN TOUCH • GET IN TOUCH
                 </textPath>
@@ -124,9 +139,13 @@ const Hero = () => {
             </svg>
           </div>
 
+          {/* Center CTA Button */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <button className="bg-white/20 backdrop-blur-md w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center">
-              <FiArrowUpRight className="text-white text-2xl md:text-3xl" />
+            <button
+              className="bg-white/20 backdrop-blur-md w-18 h-18 rounded-full flex items-center justify-center"
+              aria-label="Get in touch"
+            >
+              <FiArrowUpRight className="text-white text-4xl" />
             </button>
           </div>
         </div>
