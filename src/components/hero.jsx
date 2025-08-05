@@ -89,9 +89,7 @@ const Hero = () => {
             ref={paraRef}
             className="text-base font-roboto sm:text-lg lg:text-xl text-gray-200"
           >
-            An end-to-end digital growth platform that scales your brand through
-            targeted campaigns, real-time analytics, and smart automation tools
-            built for measurable success.
+            Smart digital growth for brands in Oman & India—targeted marketing, insights, and automation for real results.
           </p>
 
           <a
