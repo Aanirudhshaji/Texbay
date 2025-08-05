@@ -16,6 +16,7 @@ import CTA from './components/cta';
 import Footer from './components/footer';
 import SmoothScrollWrapper from './components/SmoothScrollWrapper';
 import CustomCursor from './components/CustomCursor';
+import ScrollToTop from './components/ScrollToTop';
 
 
 // ✅ Import About Page
@@ -25,6 +26,7 @@ function App() {
   return (
     <Router>
       <CustomCursor />
+      <ScrollToTop />
       <Navbar />
       <SmoothScrollWrapper>
         <Routes>

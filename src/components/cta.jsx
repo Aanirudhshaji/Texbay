@@ -40,7 +40,7 @@ const CTA = () => {
       </video>
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60 z-[1]" />
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-3 sm:px-6 max-w-[90%] sm:max-w-3xl text-white">
