@@ -8,6 +8,7 @@ html, body {
 
 @import "tailwindcss";
 
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -38,3 +39,8 @@ html, body {
     transform: rotate(360deg);
   }
 }
+
+.spin-slow {
+  animation: spin 8s linear infinite;
+}
+

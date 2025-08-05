@@ -1,9 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/navbar';
 import Hero from './components/hero';
 import Scroll from './components/scroll';
 import About from './components/about';
-import Whatwedo from './components/whatwedo';
 import Services from './components/services';
 import Process from './components/process';
 import Scroll1 from './components/scroll1';
@@ -16,27 +17,42 @@ import Footer from './components/footer';
 import SmoothScrollWrapper from './components/SmoothScrollWrapper';
 import CustomCursor from './components/CustomCursor';
 
+
+// ✅ Import About Page
+import AboutPage from './pages/about';
+
 function App() {
   return (
-    <>
-      <CustomCursor /> 
+    <Router>
+      <CustomCursor />
       <Navbar />
       <SmoothScrollWrapper>
-        <Hero />
-        <Scroll />
-        <About />
-        <Whatwedo />
-        <Services />
-        <Process />
-        <Scroll1 />
-        <Projects />
-        <Faq />
-        <Testimonial />
-        <CTA />
-        <Blog />
+        <Routes>
+          {/* Home Page */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Scroll />
+                <About />
+                <Services />
+                <Process />
+                <Scroll1 />
+                <Projects />
+                <Faq />
+                <Testimonial />
+                <CTA />
+                <Blog />
+              </>
+            }
+          />
+          {/* About Page */}
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
         <Footer />
       </SmoothScrollWrapper>
-    </>
+    </Router>
   );
 }
 

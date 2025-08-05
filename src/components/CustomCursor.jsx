@@ -9,7 +9,7 @@ const CustomCursor = () => {
     const cursor = cursorRef.current;
     const follower = followerRef.current;
 
-    const handleMouseMove = (e) => {
+    const moveCursor = (e) => {
       const { clientX, clientY } = e;
 
       gsap.to(cursor, {
@@ -27,23 +27,62 @@ const CustomCursor = () => {
       });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    const addHoverEffect = () => {
+      gsap.to(followerRef.current, {
+        scale: 2,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    };
+
+    const removeHoverEffect = () => {
+      gsap.to(followerRef.current, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    };
+
+    // Apply hover effects to links and buttons
+    const hoverTargets = document.querySelectorAll("a, button, .hover-target");
+
+    hoverTargets.forEach((el) => {
+      el.addEventListener("mouseenter", addHoverEffect);
+      el.addEventListener("mouseleave", removeHoverEffect);
+    });
+
+    window.addEventListener("mousemove", moveCursor);
+
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+      hoverTargets.forEach((el) => {
+        el.removeEventListener("mouseenter", addHoverEffect);
+        el.removeEventListener("mouseleave", removeHoverEffect);
+      });
+    };
   }, []);
 
   return (
     <>
-      {/* Desktop follower */}
+      {/* Follower */}
       <div
         ref={followerRef}
-        className="fixed top-0 left-0 z-[9999] w-8 h-8 rounded-full border border-white mix-blend-difference pointer-events-none"
-        style={{ transform: "translate(-50%, -50%)" }}
+        className="fixed top-0 left-0 z-[9999] w-10 h-10 rounded-full border border-white pointer-events-none"
+        style={{
+          transform: "translate(-50%, -50%)",
+          backdropFilter: "blur(5px)",
+          boxShadow: "0 0 15px rgba(255,255,255,0.3)",
+          transition: "transform 0.3s ease-out",
+        }}
       />
-      {/* Desktop dot cursor */}
+
+      {/* Cursor Dot */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 z-[9999] w-2 h-2 rounded-full bg-white mix-blend-difference pointer-events-none"
-        style={{ transform: "translate(-50%, -50%)" }}
+        className="fixed top-0 left-0 z-[9999] w-2.5 h-2.5 rounded-full bg-white pointer-events-none"
+        style={{
+          transform: "translate(-50%, -50%)",
+        }}
       />
     </>
   );

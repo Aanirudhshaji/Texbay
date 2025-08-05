@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import heroVideo from "../assets/hero.mp4";
 import loaderImage from "../assets/loder.png";
 
-
 const Hero = () => {
   const headingRef = useRef([]);
   const paraRef = useRef(null);
@@ -60,7 +59,7 @@ const Hero = () => {
       onMouseLeave={handlePointerUp}
     >
       {/* Background Video */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute top-0 left-0 w-full h-[130vh] sm:h-[115vh] md:h-screen z-0">
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
@@ -70,10 +69,8 @@ const Hero = () => {
           loop
           playsInline
           preload="none"
-          aria-label="Background branding video"
         >
           <source src={heroVideo} type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/50" />
       </div>
@@ -84,7 +81,9 @@ const Hero = () => {
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-roboto font-medium leading-tight">
             <span ref={(el) => (headingRef.current[0] = el)}>Creating new</span>
             <br />
-            <span ref={(el) => (headingRef.current[1] = el)}>possibilities for brands</span>
+            <span ref={(el) => (headingRef.current[1] = el)}>
+              possibilities for brands
+            </span>
           </h1>
           <p
             ref={paraRef}
@@ -107,7 +106,7 @@ const Hero = () => {
       {/* CTA */}
       <div className="hidden sm:block absolute bottom-10 right-10 z-20">
         <div className="relative w-[120px] h-[120px]">
-          <div className="absolute inset-0 animate-spin-slow">
+          <div className="absolute inset-0 spin-slow">
             <svg viewBox="0 0 100 100" className="w-full h-full">
               <defs>
                 <path
