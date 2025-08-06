@@ -18,7 +18,7 @@ const logos = [
 
 const Scroll = () => {
   return (
-    <div className="relative w-full bg-white py-2 overflow-hidden mt-15">
+    <div className="relative w-full bg-[#fbfbfb] py-2 overflow-hidden mt-15">
       {/* Left white gradient shadow */}
       <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
       
