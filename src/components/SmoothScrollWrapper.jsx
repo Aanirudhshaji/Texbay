@@ -5,35 +5,48 @@ import "locomotive-scroll/dist/locomotive-scroll.css";
 
 const SmoothScrollWrapper = ({ children }) => {
   const scrollRef = useRef(null);
-  const scrollInstanceRef = useRef(null); // Store instance
+  const scrollInstanceRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
-    // Init Locomotive Scroll
-    scrollInstanceRef.current = new LocomotiveScroll({
+    const scroll = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
-      lerp: 0.05,
+      lerp: 0.07,
+      smartphone: {
+        smooth: true,
+      },
+      tablet: {
+        smooth: true,
+      },
     });
 
+    scrollInstanceRef.current = scroll;
+
     return () => {
-      if (scrollInstanceRef.current) scrollInstanceRef.current.destroy();
+      if (scroll) scroll.destroy();
     };
   }, []);
 
-  // 🔁 Handle route changes: scroll to top and update instance
   useEffect(() => {
     const scroll = scrollInstanceRef.current;
     if (scroll) {
-      scroll.scrollTo(0, { duration: 0, disableLerp: true }); // scroll to top
-      setTimeout(() => {
-        scroll.update(); // refresh instance to re-calculate positions
-      }, 100); // slight delay to ensure DOM is rendered
+      // Give DOM time to render before scrollTo
+      requestAnimationFrame(() => {
+        scroll.scrollTo(0, {
+          duration: 0,
+          disableLerp: true,
+          offset: 0,
+        });
+
+        // Update scroll instance
+        scroll.update();
+      });
     }
   }, [location.pathname]);
 
   return (
-    <div data-scroll-container ref={scrollRef}>
+    <div ref={scrollRef} data-scroll-container>
       {children}
     </div>
   );
