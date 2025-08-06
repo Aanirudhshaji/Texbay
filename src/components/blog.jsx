@@ -12,7 +12,7 @@ const Blog = () => {
             <span className="text-black uppercase tracking-wider text-sm font-medium">
                   Blogs
                 </span>
-            <h2 className="text-4xl font-semibold text-[#002bba] mb-4 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-semibold text-[#002bba] mb-4 leading-tight">
               Read our latest Blog
             </h2>
             <p className="text-[#002bba] mb-6">

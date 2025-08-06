@@ -94,7 +94,7 @@ const Projects = () => {
           <p className="text-xs uppercase tracking-widest font-semibold text-[#000000] mb-1">
             Projects
           </p>
-          <h2 className="text-2xl text-[#002bba] sm:text-4xl md:text-5xl font-roboto font-semibold leading-tight max-w-xl">
+          <h2 className="text-3xl text-[#002bba] sm:text-4xl md:text-5xl font-roboto font-semibold leading-tight max-w-xl">
             Captivate your audience’s <span>senses, non-stop</span>
           </h2>
         </div>

@@ -25,7 +25,7 @@ const Services = () => {
             <p className="text-[#000000] text-sm font-medium mb-3">
               Services
             </p>
-            <h2 className="text-2xl text-[#002bba] sm:text-4xl md:text-5xl font-roboto font-bold leading-tight">
+            <h2 className="text-3xl text-[#002bba] sm:text-4xl md:text-5xl font-roboto font-bold leading-tight">
               We Build, Brand, <br />
               and Innovate for You
             </h2>

@@ -59,8 +59,8 @@ const Testimonials = () => {
                   TESTIMONIALS
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-roboto font-semibold text-[#002bba] leading-tight">
-                See What Our Travelers Say{' '}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-roboto font-semibold text-[#002bba] leading-tight">
+                See What Our <br /> Travelers Say{' '}
               </h2>
             </div>
             <p className="text-gray-600 text-lg leading-relaxed">

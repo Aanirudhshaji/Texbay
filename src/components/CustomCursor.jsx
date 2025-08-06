@@ -1,11 +1,20 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const CustomCursor = () => {
   const cursorRef = useRef(null);
   const followerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detect touch device
+    const isTouchDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    setIsMobile(isTouchDevice);
+
+    if (isTouchDevice) return; // Stop running cursor logic on mobile
+
     const cursor = cursorRef.current;
     const follower = followerRef.current;
 
@@ -43,7 +52,6 @@ const CustomCursor = () => {
       });
     };
 
-    // Apply hover effects to links and buttons
     const hoverTargets = document.querySelectorAll("a, button, .hover-target");
 
     hoverTargets.forEach((el) => {
@@ -61,6 +69,9 @@ const CustomCursor = () => {
       });
     };
   }, []);
+
+  // 🧼 Don't render anything on mobile
+  if (isMobile) return null;
 
   return (
     <>

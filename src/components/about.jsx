@@ -51,7 +51,7 @@ const About = () => {
             About Us
           </h4>
 
-          <h2 className="text-2xl text-[#002bba] sm:text-4xl md:text-5xl text-left font-bold leading-snug sm:leading-tight mb-4">
+          <h2 className="text-3xl text-[#002bba] sm:text-4xl md:text-5xl text-left font-bold leading-snug sm:leading-tight mb-4">
             A unique blend of strategy,{" "}
             <span className="relative inline-block">
               marketing

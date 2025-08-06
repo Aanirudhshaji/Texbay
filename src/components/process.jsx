@@ -42,7 +42,7 @@ const Process = () => {
           <h4 className="text-[#000000] text-sm font-medium mb-3">
             How It Works
           </h4>
-          <h1 className="text-2xl text-[#002bba] sm:text-4xl md:text-5xl font-roboto font-bold leading-tight">
+          <h1 className="text-3xl text-[#002bba] sm:text-4xl md:text-5xl font-roboto font-bold leading-tight">
             Proven process for success
           </h1>
           <p className="mt-2 text-lg text-gray-600">

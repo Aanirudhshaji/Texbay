@@ -22,7 +22,7 @@ const Faq = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
-          <h2 className="text-4xl text-center md:text-left sm:text-5xl font-roboto font-medium  text-[#002bba] leading-snug">
+          <h2 className="text-3xl text-center md:text-left sm:text-5xl font-roboto font-medium  text-[#002bba] leading-snug">
             Frequently asked<br /> questions
           </h2>
           <p className="text-sm sm:text-base text-gray-600 text-center sm:text-left font-poppins md-8">
