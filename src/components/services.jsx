@@ -17,7 +17,7 @@ const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-16 bg-white">
+    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-12 bg-[#fbfbfb]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between flex-wrap">

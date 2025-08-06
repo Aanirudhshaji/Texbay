@@ -4,7 +4,7 @@ import cloudImg from "../assets/bank.png";
 
 const Blog = () => {
   return (
-    <section className="w-full bg-white py-8 md:py-16 px-6 md:px-20">
+    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-12 bg-[#fbfbfb]">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
         {/* Left Section */}
         <div className="lg:w-1/3 w-full flex flex-col items-start lg:items-start text-center lg:text-left">

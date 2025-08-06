@@ -37,7 +37,7 @@ const About = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-white py-12 px-4 sm:px-6 md:px-20"
+      className="relative overflow-hidden bg-[#fbfbfb] py-12 px-4 sm:px-6 md:px-20"
       id="about"
     >
       {/* Side shadows */}

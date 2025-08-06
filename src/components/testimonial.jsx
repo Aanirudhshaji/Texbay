@@ -48,7 +48,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-8 md:py-16 bg-white">
+    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-12 bg-[#fbfbfb]">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16">
           {/* Left Content */}

@@ -67,11 +67,10 @@ const CustomCursor = () => {
       {/* Follower */}
       <div
         ref={followerRef}
-        className="fixed top-0 left-0 z-[9999] w-10 h-10 rounded-full border border-white pointer-events-none"
+        className="fixed top-0 left-0 z-[9999] w-10 h-10 rounded-full border border-[#002BBA] pointer-events-none"
         style={{
           transform: "translate(-50%, -50%)",
           backdropFilter: "blur(5px)",
-          boxShadow: "0 0 15px rgba(255,255,255,0.3)",
           transition: "transform 0.3s ease-out",
         }}
       />
@@ -79,7 +78,7 @@ const CustomCursor = () => {
       {/* Cursor Dot */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 z-[9999] w-2.5 h-2.5 rounded-full bg-white pointer-events-none"
+        className="fixed top-0 left-0 z-[9999] w-2.5 h-2.5 rounded-full bg-[#002BBA] pointer-events-none"
         style={{
           transform: "translate(-50%, -50%)",
         }}

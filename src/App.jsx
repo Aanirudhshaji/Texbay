@@ -14,19 +14,17 @@ import Blog from './components/blog';
 import Testimonial from './components/testimonial';
 import CTA from './components/cta';
 import Footer from './components/footer';
+
 import SmoothScrollWrapper from './components/SmoothScrollWrapper';
 import CustomCursor from './components/CustomCursor';
-import ScrollToTop from './components/ScrollToTop';
 
-
-// ✅ Import About Page
+// Pages
 import AboutPage from './pages/about';
 
 function App() {
   return (
     <Router>
       <CustomCursor />
-      <ScrollToTop />
       <Navbar />
       <SmoothScrollWrapper>
         <Routes>
@@ -46,13 +44,21 @@ function App() {
                 <Testimonial />
                 <CTA />
                 <Blog />
+                <Footer />
               </>
             }
           />
           {/* About Page */}
-          <Route path="/about" element={<AboutPage />} />
+          <Route
+            path="/about"
+            element={
+              <>
+                <AboutPage />
+                <Footer />
+              </>
+            }
+          />
         </Routes>
-        <Footer />
       </SmoothScrollWrapper>
     </Router>
   );
