@@ -26,7 +26,7 @@ const AboutSection = () => {
         <img
           src={aboutImg}
           alt="About Visual"
-          className="w-full h-[80vh] object-cover"
+          className="w-full h-[40vh] md:h-[80vh] object-cover"
         />
       </div>
     </section>

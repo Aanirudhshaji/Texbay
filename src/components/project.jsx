@@ -65,7 +65,7 @@ const Projects = () => {
   const renderRow = (rowData, ref, keyPrefix) => (
     <div
       ref={ref}
-      className="flex gap-6 overflow-x-auto px-4 md:px-8 py-5 select-none md:touch-none"
+      className="flex gap-6 overflow-x-auto px-4 md:px-10 lg:px-20 py-5 select-none md:touch-none"
       style={scrollStyles}
     >
       {rowData.map((proj, i) => (
@@ -78,7 +78,7 @@ const Projects = () => {
           <img
             src={proj.image}
             alt={`Project ${proj.id}`}
-            className="w-full h-full object-cover"
+            className="md:w-100 w-70 md:h-100 h-50 object-cover"
             loading="lazy"
           />
         </motion.div>
@@ -87,9 +87,9 @@ const Projects = () => {
   );
 
   return (
-    <section className="w-full py-8 md:py-12 bg-[#fbfbfb] text-black">
+    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-12 bg-[#fbfbfb] text-black">
       {/* Header with desktop button */}
-      <div className="max-w-7xl mx-auto mb-10 px-4 md:px-2 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="max-w-7xl mx-auto mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
           <p className="text-xs uppercase tracking-widest font-semibold text-[#000000] mb-1">
             Projects

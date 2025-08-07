@@ -1,6 +1,7 @@
 import React from "react";
 import heroVideo from "../assets/about.mp4";
 import Story from "../pages/Story";
+import Team from "./team";
 import Approach from "./Approach";
 
 const Home = () => {
@@ -25,7 +26,7 @@ const Home = () => {
 
         {/* Hero Content */}
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center px-4">
-          <h1 className="text-[60px] sm:text-5xl md:text-7xl lg:text-8xl font-medium font-roboto leading-tight mb-6">
+          <h1 className="text-[50px] sm:text-5xl md:text-7xl lg:text-8xl font-medium font-roboto leading-tight mb-6">
             We&apos;re All<br />About Digital
           </h1>
           <button className="flex items-center gap-2 px-5 sm:px-6 py-2 sm:py-3 bg-white text-black rounded-full text-sm sm:text-base font-semibold hover:scale-105 transition">
@@ -39,6 +40,7 @@ const Home = () => {
 
       {/* STORY SECTION */}
       <Story />
+      <Team />
       <Approach />
     </div>
   );

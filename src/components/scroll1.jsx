@@ -61,10 +61,11 @@ const Scroll1 = () => {
 
           {/* Static button, no animation */}
           <button
-            className="mt-4 px-6 py-3 rounded-full backdrop-blur-md bg-white/10 border border-white/30 text-white font-semibold shadow-lg hover:bg-white/20 transition duration-300"
+            className="mt-4 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base rounded-full backdrop-blur-md bg-white/10 border border-white/30 text-white font-semibold shadow-lg hover:bg-white/20 transition duration-300"
           >
             Let’s Collaborate
           </button>
+
         </div>
       </div>
     </section>

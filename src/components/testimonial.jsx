@@ -43,7 +43,7 @@ const Testimonials = () => {
       });
     };
 
-    const interval = setInterval(scroll, 3000); // 3 seconds interval
+    const interval = setInterval(scroll, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -52,7 +52,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16">
           {/* Left Content */}
-          <div className="lg:w-1/3 mb-8 lg:mb-0">
+          <div className="lg:w-1/3 mb-8 lg:mb-0 px-4 md:px-0">
             <div className="mb-6">
               <div className="flex items-center gap-4 mb-6">
                 <span className="text-black uppercase tracking-wider text-sm font-medium">
@@ -60,7 +60,7 @@ const Testimonials = () => {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-roboto font-semibold text-[#002bba] leading-tight">
-                See What Our <br /> Travelers Say{' '}
+                See What Our <br /> Travelers Say
               </h2>
             </div>
             <p className="text-gray-600 text-lg leading-relaxed">
