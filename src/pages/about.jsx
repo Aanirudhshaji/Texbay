@@ -1,8 +1,10 @@
 import React from "react";
 import heroVideo from "../assets/about.mp4";
-import Story from "../pages/Story";
+import Story from "./Story";
 import Team from "./team";
 import Approach from "./Approach";
+import Blog from "../components/Blog";
+import CTA from "./cta";
 
 const Home = () => {
   return (
@@ -40,8 +42,10 @@ const Home = () => {
 
       {/* STORY SECTION */}
       <Story />
-      <Team />
       <Approach />
+      <Team />
+      <Blog />
+      <CTA />
     </div>
   );
 };

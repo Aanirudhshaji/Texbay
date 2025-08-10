@@ -1,137 +1,154 @@
 import React from "react";
-import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { FiFeather } from "react-icons/fi";
+import brandingIcon from "../assets/design.gif";
+import designIcon from "../assets/develop.gif";
+import devIcon from "../assets/market.gif";
+import centerVideo from "../assets/b.mp4"; // replace with your video file
 
 const About = () => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2, // Improved for Safari triggering
-  });
-
-  const CustomButton = () => (
-    <button
-      type="button"
-      className="relative z-10 px-4 py-2 flex items-center gap-2 justify-left border-2 border-[#396FD4] text-lg font-semibold rounded-full overflow-hidden group bg-white/70 supports-blur:backdrop-blur-md shadow-xl hover:text-[#ffffff]"
-    >
-      <span className="relative z-10">Explore</span>
-
-      <svg
-        className="w-8 h-8 p-2 border border-gray-700 rounded-full transform transition-transform duration-300 ease-linear group-hover:rotate-90 group-hover:bg-gray-50"
-        viewBox="0 0 16 19"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-          className="fill-gray-800 group-hover:fill-gray-800"
-        />
-      </svg>
-
-      {/* Animated background span instead of pseudo-element */}
-      <span
-        className="absolute left-0 top-0 w-full h-full bg-[#396FD4] -z-10 scale-x-0 group-hover:scale-x-150 transition-transform duration-700 ease-in-out origin-left rounded-full"
-        aria-hidden="true"
-      ></span>
-    </button>
-  );
+  const services = [
+    {
+      id: 1,
+      icon: brandingIcon,
+      title: "DESIGN",
+      desc: "Our expert design team in Kannur, Kerala creates visually stunning, user-friendly websites, logos, and brand assets that capture your audience’s attention and reflect your unique identity.",
+    },
+    {
+      id: 2,
+      icon: designIcon,
+      title: "DEVELOP",
+      desc: "We build fast, secure, and SEO-optimized websites in Kannur that work seamlessly across devices, helping businesses grow their online presence and convert visitors into customers.",
+    },
+    {
+      id: 3,
+      icon: devIcon,
+      title: "MARKETING",
+      desc: "From local SEO and social media management to paid advertising, our marketing services in Kannur help you reach the right audience, boost engagement, and drive measurable growth.",
+    },
+  ];
 
   return (
-    <section
-      className="relative overflow-hidden bg-[#fbfbfb] py-12 px-4 sm:px-6 md:px-20"
-      id="about"
-    >
-      {/* Side shadows */}
-      <div className="hidden md:block absolute left-0 top-0 h-full w-12 bg-white shadow-[40px_0_60px_20px_rgba(255,255,255,1)] z-10" />
-      <div className="hidden md:block absolute right-0 top-0 h-full w-12 bg-white shadow-[-40px_0_60px_20px_rgba(255,255,255,1)] z-10" />
+    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-12 bg-[#fbfbfb] relative">
+      <div className="max-w-7xl mx-auto">
 
-      <div className="max-w-7xl mx-auto relative z-20 grid grid-cols-1 md:grid-cols-2 items-start">
-        {/* Left side */}
-        <div className="text-center md:text-left">
-          <h4 className="text-[#000000] text-sm text-left sm:text-base font-medium mb-3">
-            About Us
-          </h4>
-
-          <h2 className="text-3xl text-[#002bba] sm:text-4xl md:text-5xl text-left font-bold leading-snug sm:leading-tight mb-4">
-            A unique blend of strategy,{" "}
-            <span className="relative inline-block">
-              marketing
-              <svg
-                viewBox="0 0 286 73"
-                fill="none"
-                className="absolute -left-2 -right-2 -top-2 bottom-0 translate-y-1"
-              >
-                <motion.path
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  transition={{ duration: 1.25, ease: "easeInOut" }}
-                  d="M142.293 1C106.854 16.8908 6.08202 7.17705 1.23654 43.3756C-2.10604 68.3466 29.5633 73.2652 122.688 71.7518C215.814 70.2384 316.298 70.689 275.761 38.0785C230.14 1.37835 97.0503 24.4575 52.9384 1"
-                  stroke="#FACC15"
-                  strokeWidth="3"
-                />
-              </svg>
-            </span>
-            , design, and digital expertise.
+        {/* Top Tag */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 mb-4 bg-[#002bba] text-white text-xs font-semibold px-3 py-2 rounded-full"
+        >
+          THE ATTENTION ECONOMY
+          <FiFeather className="w-4 h-4" />
+        </motion.div>
+        
+        {/* Heading */}
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <h2 className="text-2xl md:text-5xl font-bold uppercase text-black leading-tight">
+            Texbay Digital Marketing <br /> Agency in Kannur, Kerala
           </h2>
-
-          {/* Desktop-only Button */}
-          <div className="hidden md:block mt-6">
-            <CustomButton />
-          </div>
         </div>
 
-        {/* Right side */}
-        <div className="pt-2 sm:pt-12">
-          <p className="text-sm sm:text-base leading-relaxed text-gray-800 mb-8 sm:mb-14 text-left md:text-left">
-            Companies and organizations have no choice but to achieve perfection
-            in a world of algorithms, artificial intelligence, and word-of-mouth.
-            Keeper has assembled a group of strategists, designers, branding
-            experts, business model specialists, and service designers.
-            We assist our clients in excelling in their fields. or even more powerful.
-          </p>
+        {/* Subtitle */}
+        <motion.h3
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-2xl md:text-4xl font-bold text-gray-400 leading-tight mb-10 mt-4"
+        >
+          Creative, Innovative, and Locally Tailored <br /> Marketing & Web Design Solutions
+        </motion.h3>
 
-          {/* Stats */}
-          <div
-            ref={ref}
-            className="flex flex-row justify-between items-center gap-2 md:gap-13 text-center px-2 mb-6 w-full overflow-x-hidden"
-          >
-            <div className="min-w-[90px] flex-shrink-0">
-              <h3 className="text-3xl sm:text-7xl font-semibold text-[#002bba] whitespace-nowrap">
-                {inView && <CountUp end={3} duration={2} />}+
-              </h3>
-              <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
-                Years <br className="block md:hidden" /> Experience
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="border-2 border-[#002bba] text-black p-8 rounded-md flex flex-col items-start min-h-[320px] hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={service.icon}
+                alt={service.title}
+                className="w-20 md:w-20 md:h-20 h-20 mb-6"
+              />
+              <h4 className="text-4xl md:text-4xl font-bold font-roboto mb-5 md:mb-10">
+                {service.title}
+              </h4>
+              <p className="text-lg leading-relaxed font-poppins mt-1 md:mt-2">
+                {service.desc}
               </p>
-            </div>
+            </motion.div>
+          ))}
+        </div>
 
-            <div className="h-10 border-l border-gray-300 mx-2" />
+        {/* Mobile Simple Button */}
+        <div className="md:hidden mt-8 w-full flex justify-center">
+          <button className="bg-[#002bba] hover:bg-[#001f88] text-white font-medium px-6 py-2 rounded-full transition-all duration-300">
+            Know More
+          </button>
+        </div>
+      </div>
 
-            <div className="min-w-[90px] flex-shrink-0">
-              <h3 className="text-3xl sm:text-7xl font-semibold text-[#002bba] whitespace-nowrap">
-                {inView && <CountUp end={15} duration={2} />}+
-              </h3>
-              <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
-                Global <br className="block md:hidden" /> Presence
-              </p>
-            </div>
+      {/* Desktop Rotating Video Button */}
+      <div className="hidden md:block absolute top-10 right-14 z-20">
+        <div className="relative w-[120px] h-[120px]">
+          
+          {/* Rotating Text */}
+          <div className="absolute inset-0 spin-slow">
+            <svg viewBox="0 0 100 100" className="w-full h-full">
+              <defs>
+                <path
+                  id="circlePath"
+                  d="M 50, 50
+                    m -35, 0
+                    a 35,35 0 1,1 70,0
+                    a 35,35 0 1,1 -70,0"
+                />
+              </defs>
+              <text
+                fontSize="9"
+                fill="black"
+                fontWeight="bold"
+                fontFamily="sans-serif"
+              >
+                <textPath xlinkHref="#circlePath" startOffset="0%">
+                  • GET IN TOUCH • GET IN TOUCH • GET IN TOUCH
+                </textPath>
+              </text>
+            </svg>
+          </div>
 
-            <div className="h-10 border-l border-gray-300 mx-2" />
-
-            <div className="min-w-[90px] flex-shrink-0">
-              <h3 className="text-3xl sm:text-7xl font-semibold text-[#002bba] whitespace-nowrap">
-                {inView && <CountUp end={20} duration={2} />}+
-              </h3>
-              <p className="text-xs sm:text-base text-gray-600 mt-1 whitespace-nowrap">
-                Projects <br className="block md:hidden" /> Over
-              </p>
-            </div>
+          {/* Center Video */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <video
+              src={centerVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-[70px] h-[70px] rounded-full object-cover"
+            />
           </div>
         </div>
       </div>
 
-      {/* Mobile-only Button */}
-      <div className="mt-6 md:hidden flex justify-center">
-        <CustomButton />
-      </div>
+      {/* Tailwind custom keyframes */}
+      <style>
+        {`
+          @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          .spin-slow {
+            animation: spin 12s linear infinite;
+          }
+        `}
+      </style>
     </section>
   );
 };

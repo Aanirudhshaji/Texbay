@@ -89,7 +89,7 @@ const Hero = () => {
             ref={paraRef}
             className="text-base font-roboto sm:text-lg lg:text-xl text-gray-200"
           >
-            Smart digital growth for brands in Oman & India targeted marketing, insights, and automation for real results.
+            Smart digital growth for brands in Oman & India targeted marketing,<br /> insights, and automation for real results.
           </p>
 
           <a

@@ -1,36 +1,74 @@
 import React from "react";
-import aboutImg from "../assets/11.jpg"; // your full-width image
+import { FaExpandArrowsAlt, FaGripLines, FaRegSquare, FaAsterisk } from "react-icons/fa";
 
-const AboutSection = () => {
+const Approach = () => {
   return (
-    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-12 bg-[#fbfbfb]">
-      {/* Top Grid */}
-      <hr className="border-t border-gray-300 my-6" />
+    <section className="bg-[#000000] text-[#f5f5f0] px-6 md:px-20 py-16 md:py-24">
+      {/* Section Heading */}
+      <h2 className="text-4xl text-center md:text-left md:text-5xl font-roboto font-bold mb-10 md:mb-30">
+        What powers everything we do
+      </h2>
 
-      {/* Sub Heading */}
-      <p className="text-sm text-[#3F73D8] font-semibold mb-6">
-        [OUR APPROACH]
-      </p>
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
+        {/* Curiosity */}
+        <div className="flex gap-6">
+          <div className="flex-shrink-0 pt-1">
+            <FaExpandArrowsAlt className="text-[#b3ff00] text-4xl md:text-5xl" />
+          </div>
+          <div>
+            <h3 className="text-2xl md:text-4xl font-roboto font-bold mb-3">Curiosity</h3>
+            <p className="text-lg leading-relaxed font-poppins max-w-md">
+              We question everything — assumptions, best practices, "the way
+              things are done." Breakthroughs come from those who dig deeper.
+            </p>
+          </div>
+        </div>
 
-      {/* Paragraph */}
-      <p className="text-black text-lg sm:text-5xl mb-10 leading-snug">
-        &emsp; &emsp; &emsp; &emsp; We take a personal method to every project, ensuring that we understand
-        your brand, your audience, and your objectives. With in-house
-        distribution specialists, we incorporate a data-driven approach into
-        everything we do. We don’t rely solely on gut feeling; instead, we
-        enhance our projects with statistics, trends, and in-depth research.
-      </p>
+        {/* Tenacity */}
+        <div className="flex gap-6">
+          <div className="flex-shrink-0 pt-1">
+            <FaGripLines className="text-[#b3ff00] text-4xl md:text-5xl" />
+          </div>
+          <div>
+            <h3 className="text-2xl md:text-4xl font-roboto font-bold mb-3">Tenacity</h3>
+            <p className="text-lg leading-relaxed font-poppins max-w-md">
+              We’re relentless. We don't stop at good enough, close enough, or
+              almost there. We stop at perfect.
+            </p>
+          </div>
+        </div>
 
-      {/* Full Width Image */}
-      <div className="w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] mt-12">
-        <img
-          src={aboutImg}
-          alt="About Visual"
-          className="w-full h-[40vh] md:h-[80vh] object-cover"
-        />
+        {/* Honesty */}
+        <div className="flex gap-6">
+          <div className="flex-shrink-0 pt-1">
+            <FaRegSquare className="text-[#b3ff00] text-4xl md:text-5xl" />
+          </div>
+          <div>
+            <h3 className="text-2xl md:text-4xl font-roboto font-bold mb-3">Honesty</h3>
+            <p className="text-lg leading-relaxed font-poppins max-w-md">
+              We say what needs to be said, even when it stings. Trust starts
+              with truth.
+            </p>
+          </div>
+        </div>
+
+        {/* Creativity */}
+        <div className="flex gap-6">
+          <div className="flex-shrink-0 pt-1">
+            <FaAsterisk className="text-[#b3ff00] text-4xl md:text-5xl" />
+          </div>
+          <div>
+            <h3 className="text-2xl md:text-4xl font-roboto font-bold mb-3">Creativity</h3>
+            <p className="text-lg leading-relaxed font-poppins max-w-md">
+              The "done thing" has its place. But we like to push boundaries,
+              try new approaches, and never settle for the obvious.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
-export default AboutSection;
+export default Approach;

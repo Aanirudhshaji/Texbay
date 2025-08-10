@@ -1,20 +1,20 @@
 import React from "react";
-import engineerImage from "../assets/engineer.jpg"; // Replace with your actual image path
+import engineerImage from "../assets/11.jpg"; // Replace with your actual image path
 
 const Story = () => {
   return (
-    <section className="w-full bg-white px-4 md:px-10 lg:px-20 py-12">
+    <section className="w-full bg-[#fbfbfb] px-4 md:px-10 lg:px-20 pt-20">
       {/* Top grid with heading and text */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto items-start">
         {/* Left Column: Vertical Heading */}
         <div className="md:col-span-1 text-left">
         {/* Mobile (single line) */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002bba] leading-tight uppercase block md:hidden">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002bba] text-center leading-tight uppercase block md:hidden">
           Navigating Future Stories
         </h2>
 
         {/* Medium+ screens (stacked lines) */}
-        <h2 className="hidden md:block text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002bba] leading-tight uppercase whitespace-pre-line">
+        <h2 className="hidden md:block text-3xl sm:text-4xl md:text-left  lg:text-5xl font-roboto font-bold text-[#002bba] leading-tight uppercase whitespace-pre-line">
           Navigating{"\n"}Future{"\n"}Stories
         </h2>
       </div>
