@@ -1,20 +1,71 @@
 import React from "react";
+import heroVideo from "../assets/bbcta.mp4";
+import btnVideo from "../assets/button.mp4"; // <-- background video for button
 
 const CTA = () => {
   return (
-    <section className="bg-[#f99c42] py-20 flex items-center justify-center">
-      <div className="relative inline-block px-10 py-6">
-        <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-black opacity-30 z-10"></div>
-        <div className="relative z-20">
-          <div className="text-center text-white text-5xl font-bold">
-            <div className="overflow-hidden whitespace-nowrap">
-              <div className="animate-marquee inline-block">
-                Ready to get started?
-              </div>
-            </div>
+    <section className="w-full bg-[#e4e2d3] py-12 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-20">
+      <div className="max-w-6xl mx-auto text-center">
+
+        {/* Small subtitle */}
+        <p className="text-sm md:text-base text-black/80 mb-6">
+          Visual Domain 2024 Video Insights
+        </p>
+
+        {/* HEADLINE */}
+        <div className="mx-auto max-w-[1200px]">
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <span className="font-extrabold text-black leading-none text-[28px] sm:text-[64px] md:text-[40px] lg:text-[50px] xl:text-[60px]" style={{ lineHeight: 0.9 }}>
+              HARNESS
+            </span>
+
+            {/* Inline rounded video */}
+            <span className="inline-block rounded-md md:rounded-2xl overflow-hidden w-[50px] h-[40px] sm:w-[30px] sm:h-[30px] md:w-[90px] md:h-[50px] lg:w-[100px] lg:h-[60px]" aria-hidden="true">
+              <video
+                src={heroVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            </span>
+
+            <span className="font-extrabold text-black leading-none text-[28px] sm:text-[64px] md:text-[40px] lg:text-[50px] xl:text-[60px]" style={{ lineHeight: 0.9 }}>
+              IDEAS TO
+            </span>
           </div>
-          <button className="mt-6 bg-white text-[#3b3b3b] px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300">
-            Contact Us
+
+          <div>
+            <h1 className="font-extrabold text-black leading-none mt-2 text-[28px] sm:text-[72px] md:text-[40px] lg:text-[50px] xl:text-[60px]" style={{ lineHeight: 0.9 }}>
+              TRANSFORM YOUR BUSINESS
+            </h1>
+          </div>
+        </div>
+
+        {/* Short description */}
+        <p className="mt-6 text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
+          Discover how video can drive growth, engagement &amp; ROI
+        </p>
+
+        {/* CTA Button with hover video */}
+        <div className="mt-8 flex justify-center">
+          <button
+            onMouseEnter={(e) => {
+              const vid = e.currentTarget.querySelector("video");
+              if (vid) vid.play();
+            }}
+            className="group relative inline-flex items-center justify-center px-8 py-3 rounded-full text-base md:text-lg font-medium text-white overflow-hidden shadow-lg"
+          >
+            <video
+              src={btnVideo}
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            />
+            <span className="absolute inset-0 bg-[#002bba] group-hover:opacity-0 transition-opacity duration-300"></span>
+            <span className="relative z-10">Schedule Meeting</span>
           </button>
         </div>
       </div>
