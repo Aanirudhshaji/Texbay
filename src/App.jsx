@@ -20,6 +20,7 @@ import CustomCursor from './components/CustomCursor';
 
 // Pages
 import AboutPage from './pages/about';
+import Work from './pages/work';
 
 function App() {
   return (
@@ -58,6 +59,17 @@ function App() {
               </>
             }
           />
+
+          <Route
+            path="/work"
+            element={
+              <>
+                <Work />
+                <Footer />
+              </>
+            }
+          />
+
         </Routes>
       </SmoothScrollWrapper>
     </Router>

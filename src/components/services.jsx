@@ -90,7 +90,7 @@ const Services = () => {
 
         {/* Mobile CTA Button */}
         <div className="lg:hidden mt-10 text-center">
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm hover:bg-blue-700 transition-all">
+          <button className="bg-[#002bba] text-white px-6 py-2 rounded-full text-sm hover:bg-blue-700 transition-all">
             Let’s discuss
           </button>
         </div>
