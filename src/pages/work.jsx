@@ -6,8 +6,7 @@ import img from "../assets/1.jpg";
 import pro1 from "../assets/project/pro1.jpg";
 import pro2 from "../assets/project/pro2.jpg";
 import pro3 from "../assets/project/pro3.jpg";
-import pro4 from "../assets/project/pro4.webp";
-import titleVideo from "../assets/project/title.mp4"; // inline video
+import pro4 from "../assets/project/pro4.webp"; // inline video
 
 const projects = [
   { 
@@ -67,7 +66,7 @@ function Work() {
               <span>We</span>
               <span className="inline-block w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] lg:w-[80px] lg:h-[80px] rounded-xl overflow-hidden">
                 <video
-                  src={titleVideo}
+                  src="https://res.cloudinary.com/demeflwme/video/upload/v1756195493/title_f69wwi.mp4"
                   className="w-full h-full object-cover"
                   autoPlay
                   muted
