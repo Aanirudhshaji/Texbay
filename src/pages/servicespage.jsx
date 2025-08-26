@@ -1,6 +1,5 @@
 // services.jsx
 import React from "react";
-import servVideo from "../assets/services/serv.mp4"; // existing code
 
 const Services = () => {
   return (
@@ -8,7 +7,7 @@ const Services = () => {
       {/* Existing Video Section */}
       <section className="relative w-full h-screen overflow-hidden">
         <video
-          src={servVideo}
+          src="https://res.cloudinary.com/demeflwme/video/upload/v1756195884/serv_komn3g.mp4"
           autoPlay
           loop
           muted
