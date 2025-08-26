@@ -1,69 +1,152 @@
 // Work.jsx
 import React from "react";
+import { motion } from "framer-motion"; // animation library
+import CTA from "./cta";
+import img from "../assets/1.jpg";
+import pro1 from "../assets/project/pro1.jpg";
+import pro2 from "../assets/project/pro2.jpg";
+import pro3 from "../assets/project/pro3.jpg";
+import pro4 from "../assets/project/pro4.webp";
+import titleVideo from "../assets/project/title.mp4"; // inline video
 
 const projects = [
-  {
-    id: 1,
-    title: "Fashion Branding",
-    category: "Brand Identity",
-    image: "https://assets.website-files.com/6356f12b30e9da6f09df9937/6356f35e2b6a59f1b06cbe1f_project-01-p-800.jpg",
+  { 
+    id: 1, 
+    name: "Johnson Winter Slattery", 
+    title: "Redefining the digital presence of Johnson Winter Slattery", 
+    img: pro1 
   },
-  {
-    id: 2,
-    title: "Creative Photography",
-    category: "Photography",
-    image: "https://assets.website-files.com/6356f12b30e9da6f09df9937/6356f365b6f35d6a89dc3d9b_project-02-p-800.jpg",
+  { 
+    id: 2, 
+    name: "Beatrix Bakes", 
+    title: "Whipping up an iconic brand and digital experience", 
+    img: pro2 
   },
-  {
-    id: 3,
-    title: "UI/UX Website Design",
-    category: "Web Design",
-    image: "https://assets.website-files.com/6356f12b30e9da6f09df9937/6356f35ec7747c249f02f908_project-03-p-800.jpg",
+  { 
+    id: 3, 
+    name: "Instant Scripts", 
+    title: "Transforming telehealth", 
+    img: pro3
   },
-  {
-    id: 4,
-    title: "Architecture Visualization",
-    category: "3D Design",
-    image: "https://assets.website-files.com/6356f12b30e9da6f09df9937/6356f365b0b2b36e0a8f7867_project-04-p-800.jpg",
+  { 
+    id: 4, 
+    name: "FutureWorks", 
+    title: "Content marketing and digital PR innovation", 
+    img: pro4
+  },
+  { 
+    id: 5, 
+    name: "GreenTech", 
+    title: "Driving thought leadership in sustainability", 
+    img 
+  },
+  { 
+    id: 6, 
+    name: "NextWave", 
+    title: "Corporate communications and crisis management", 
+    img 
   },
 ];
 
-const Work = () => {
+function Work() {
   return (
-    <section className="w-full bg-[#f9f9f9] py-16 px-6 md:px-12 lg:px-20">
-      {/* Heading */}
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-          Selected Works
-        </h2>
-        <p className="text-gray-600 text-lg md:text-xl">
-          A curated collection of projects showcasing creativity, branding, and design excellence.
-        </p>
-      </div>
-
-      {/* Projects Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
-        {projects.map((project) => (
-          <div key={project.id} className="group relative overflow-hidden rounded-2xl shadow-lg">
-            {/* Project Image */}
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-[350px] object-cover transform group-hover:scale-110 transition duration-500"
-            />
-
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6">
-              <div>
-                <p className="text-white text-sm uppercase tracking-wide mb-2">{project.category}</p>
-                <h3 className="text-white text-2xl font-semibold">{project.title}</h3>
-              </div>
+    <main className="bg-[#fbfbfb] text-[#002bba]">
+      {/* Hero Title Section */}
+      <section className="w-full px-4 md:px-10 lg:px-20 pt-20 md:pt-32 pb-8 md:pb-12 bg-[#fbfbfb]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+          {/* Left: Big Title */}
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="leading-[0.9] font-roboto font-medium text-[3.5rem] sm:text-[5rem] lg:text-[5.5rem] tracking-tight"
+          >
+            <h1 className="flex flex-wrap items-center gap-2">The Problems</h1>
+            <div className="flex items-center gap-2 mt-2">
+              <span>We</span>
+              <span className="inline-block w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] lg:w-[80px] lg:h-[80px] rounded-xl overflow-hidden">
+                <video
+                  src={titleVideo}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              </span>
+              <span>Solved</span>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          </motion.div>
+
+          {/* Right: Description */}
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="max-w-xl text-lg sm:text-xl leading-relaxed font-poppins font-medium text-neutral-800 lg:self-end"
+          >
+            Clients globally come to us with either one of these problems:
+            <span className="font-bold"> Demand</span> or
+            <span className="font-bold"> Discovery</span>. We drive search
+            demand or discovery for brands with ambitions to be category
+            leaders.
+          </motion.div>
+        </div>
+
+        {/* Full-width divider line */}
+        <div className="w-full h-px bg-neutral-300 mt-10"></div>
+      </section>
+
+      {/* Card Grid Section */}
+      <section className="w-full px-4 md:px-10 lg:px-20 py-12 bg-[#fbfbfb]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col"
+            >
+              {/* Image */}
+              <motion.div 
+                whileHover={{ scale: 1.03 }} 
+                transition={{ type: "spring", stiffness: 200 }}
+                className="relative w-full rounded-2xl overflow-hidden"
+              >
+                <img
+                  src={project.img}
+                  alt={project.name}
+                  className="w-full h-[360px] md:h-[420px] lg:h-[440px] object-cover rounded-2xl"
+                />
+
+                {project.badge && (
+                  <img
+                    src={project.badge}
+                    alt="badge"
+                    className="absolute bottom-4 right-5 w-20 h-20 object-contain"
+                  />
+                )}
+              </motion.div>
+
+              {/* Text below image */}
+              <h3 className="mt-6 text-2xl md:text-[28px] font-semibold leading-tight text-neutral-900">
+                {project.name}
+              </h3>
+              <p className="mt-2 text-base md:text-lg text-neutral-600">
+                {project.title}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <CTA />
+    </main>
   );
-};
+}
 
 export default Work;

@@ -9,14 +9,14 @@ const CTA = () => {
 
         {/* Small subtitle */}
         <p className="text-sm md:text-base text-black/80 mb-6">
-          Visual Domain 2024 Video Insights
+          Texbay 2024 Creative Insights
         </p>
 
         {/* HEADLINE */}
         <div className="mx-auto max-w-[1200px]">
           <div className="flex flex-wrap justify-center items-center gap-4">
             <span className="font-extrabold text-black leading-none text-[28px] sm:text-[64px] md:text-[40px] lg:text-[50px] xl:text-[60px]" style={{ lineHeight: 0.9 }}>
-              HARNESS
+              EMPOWER
             </span>
 
             {/* Inline rounded video */}
@@ -32,20 +32,20 @@ const CTA = () => {
             </span>
 
             <span className="font-extrabold text-black leading-none text-[28px] sm:text-[64px] md:text-[40px] lg:text-[50px] xl:text-[60px]" style={{ lineHeight: 0.9 }}>
-              IDEAS TO
+              STRATEGIES THAT
             </span>
           </div>
 
           <div>
             <h1 className="font-extrabold text-black leading-none mt-2 text-[28px] sm:text-[72px] md:text-[40px] lg:text-[50px] xl:text-[60px]" style={{ lineHeight: 0.9 }}>
-              TRANSFORM YOUR BUSINESS
+              IGNITE YOUR GROWTH
             </h1>
           </div>
         </div>
 
         {/* Short description */}
         <p className="mt-6 text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-          Discover how video can drive growth, engagement &amp; ROI
+          See how visuals can power growth, loyalty & revenue
         </p>
 
         {/* CTA Button with hover video */}

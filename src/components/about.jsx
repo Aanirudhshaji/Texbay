@@ -28,7 +28,7 @@ const About = () => {
             whileTap={{ scale: 0.95 }}
             className="hidden md:inline-block bg-[#002bba] hover:bg-[#001a7d] text-white px-6 py-2.5 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300"
           >
-            Learn More
+            Our Story
           </motion.button>
         </motion.div>
 

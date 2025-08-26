@@ -15,12 +15,14 @@ import Testimonial from './components/testimonial';
 import CTA from './components/cta';
 import Footer from './components/footer';
 
+//wrappercomponents
 import SmoothScrollWrapper from './components/SmoothScrollWrapper';
 import CustomCursor from './components/CustomCursor';
 
 // Pages
 import AboutPage from './pages/about';
 import Work from './pages/work';
+import Servicespage from './pages/servicespage';
 
 function App() {
   return (
@@ -59,12 +61,22 @@ function App() {
               </>
             }
           />
-
+          {/* Work Page */}
           <Route
             path="/work"
             element={
               <>
                 <Work />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/services"
+            element={
+              <>
+                <Servicespage />
                 <Footer />
               </>
             }
