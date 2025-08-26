@@ -1,5 +1,4 @@
 import React from "react";
-import heroVideo from "../assets/about.mp4";
 import Story from "./Story";
 import Team from "./team";
 import Approach from "./Approach";
@@ -19,7 +18,7 @@ const Home = () => {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src="https://res.cloudinary.com/demeflwme/video/upload/v1756219736/about-BrL1Wqom_oa0zmn.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
