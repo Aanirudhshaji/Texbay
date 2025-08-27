@@ -1,8 +1,8 @@
 import React from "react";
 import { FaLinkedinIn } from "react-icons/fa";
 
-import person1 from "../assets/person1.jpg";
-import person2 from "../assets/person2.jpg";
+import person1 from "../../assets/person1.jpg";
+import person2 from "../../assets/person2.jpg";
 
 const teamMembers = [
   {

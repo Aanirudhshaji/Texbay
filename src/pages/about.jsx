@@ -1,9 +1,9 @@
 import React from "react";
-import Story from "./Story";
-import Team from "./team";
-import Approach from "./Approach";
+import Story from "../pages/aboutcomp/Story";
+import Team from "../pages/aboutcomp/team";
+import Approach from "../pages/aboutcomp/Approach";
 import Blog from "../components/Blog";
-import CTA from "./cta";
+import CTA from "../pages/aboutcomp/cta";
 
 const Home = () => {
   return (

@@ -1,7 +1,7 @@
 // Work.jsx
 import React from "react";
 import { motion } from "framer-motion"; // animation library
-import CTA from "./cta";
+import CTA from "./aboutcomp/cta";
 import img from "../assets/1.jpg";
 import pro1 from "../assets/project/pro1.jpg";
 import pro2 from "../assets/project/pro2.jpg";

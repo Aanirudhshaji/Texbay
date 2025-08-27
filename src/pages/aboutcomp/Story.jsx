@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import about1 from "../assets/about1.mp4";
-import about2 from "../assets/about2.mp4";
-import img1 from "../assets/1.jpg";
-import img2 from "../assets/1.jpg";
-import img3 from "../assets/1.jpg";
-import imgFull from "../assets/11.jpg"; // ✅ New full-width image
+import about1 from "../../assets/about1.mp4";
+import about2 from "../../assets/about2.mp4";
+import img1 from "../../assets/1.jpg";
+import img2 from "../../assets/1.jpg";
+import img3 from "../../assets/1.jpg";
+import imgFull from "../../assets/11.jpg"; // ✅ New full-width image
 
 const slides = [
   {

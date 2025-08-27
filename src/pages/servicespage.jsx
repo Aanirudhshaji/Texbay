@@ -1,6 +1,6 @@
 // services.jsx
 import React from "react";
-import CTA from "./cta";
+import CTA from "./aboutcomp/cta";
 
 const Services = () => {
   return (

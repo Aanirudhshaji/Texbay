@@ -1,6 +1,4 @@
 import React from "react";
-import heroVideo from "../assets/bbcta.mp4";
-import btnVideo from "../assets/button.mp4"; // <-- background video for button
 
 const CTA = () => {
   return (
@@ -22,7 +20,7 @@ const CTA = () => {
             {/* Inline rounded video */}
             <span className="inline-block rounded-md md:rounded-2xl overflow-hidden w-[50px] h-[40px] sm:w-[30px] sm:h-[30px] md:w-[90px] md:h-[50px] lg:w-[100px] lg:h-[60px]" aria-hidden="true">
               <video
-                src={heroVideo}
+                src="https://res.cloudinary.com/demeflwme/video/upload/v1756263980/bbcta-_77uto9R_rktp39.mp4"
                 autoPlay
                 muted
                 loop
@@ -58,7 +56,7 @@ const CTA = () => {
             className="group relative inline-flex items-center justify-center px-8 py-3 rounded-full text-base md:text-lg font-medium text-white overflow-hidden shadow-lg"
           >
             <video
-              src={btnVideo}
+              src="https://res.cloudinary.com/demeflwme/video/upload/v1756263899/button-DTIcGFbp_sjrdcv.mp4"
               muted
               loop
               playsInline
