@@ -110,13 +110,13 @@ const Testimonial = () => {
   const handlePointerUp = () => setIsDragging(false);
 
   return (
-    <section className="w-full bg-[#fbfbfb] px-4 md:px-10 lg:px-20 py-20 overflow-hidden">
+    <section className="w-full bg-[#fbfbfb] px-4 md:px-10 lg:px-20 py-6 md:mb-10 mb-12 md:py-8 overflow-hidden">
       <div className="grid lg:grid-cols-3 gap-8 items-start">
         {/* Left */}
         <div className="lg:col-span-1 flex flex-col justify-between">
           <div>
             <p className="text-gray-700 text-sm mb-4">• Testimonials</p>
-            <h2 className="text-4xl md:text-5xl font-medium font-roboto leading-tight mb-6">
+            <h2 className="text-4xl text-[#002bba] md:text-5xl font-medium font-roboto leading-tight mb-6">
               Why our <br /> clients <br /> love Shape
             </h2>
 

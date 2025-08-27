@@ -1,6 +1,8 @@
 // services.jsx
 import React from "react";
+import { motion } from "framer-motion"; // ✅ Import Framer Motion
 import CTA from "./aboutcomp/cta";
+import ServicesCard from "./servicescomp/servicescard";
 
 const Services = () => {
   return (
@@ -17,17 +19,36 @@ const Services = () => {
         />
         <div className="absolute inset-0 bg-black/20" />
 
-        <div className="relative z-10 flex items-end justify-start w-full h-full px-4 md:px-10 lg:px-20 pb-12 md:pb-20">
-          <h1 className="text-white text-[42px] sm:text-5xl md:text-7xl font-light leading-tight max-w-lg">
-            Insight-led.
-            <br />
-            Impact-driven.
-          </h1>
-        </div>
+        <div className="relative z-10 flex items-center justify-center w-full h-full px-4 md:px-10 lg:px-20 pb-12 md:items-end md:justify-start">
+  <div className="flex flex-col items-center md:items-start">
+    {/* Small Label */}
+    <motion.span
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="text-white text-sm sm:text-base uppercase tracking-[4px] mb-4 text-center md:text-left"
+    >
+      Our Services
+    </motion.span>
+
+    {/* Animated Title */}
+    <motion.h1
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="text-white text-[42px] sm:text-5xl md:text-7xl font-light leading-tight max-w-lg text-center md:text-left"
+    >
+      Insight-led.
+      <br />
+      Impact-driven.
+    </motion.h1>
+  </div>
+</div>
+
       </section>
 
       {/* Work, Life & Services Section */}
-      <section className="w-full px-4 md:px-10 lg:px-20 py-24 bg-white">
+      <section className="w-full px-4 md:px-10 lg:px-20 pt-12 md:pt-24 pb-2 bg-[#fbfbfb]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Left Column - Work & Life */}
           <div className="md:col-span-1">
@@ -42,9 +63,15 @@ const Services = () => {
             </p>
           </div>
 
-          {/* Middle Column - Work & Life Text */}
-          <div className="md:col-span-2 mb-12 md:mb-0">
-            <p className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-medium leading-snug md:leading-tight text-gray-900 text-center md:text-left">
+          {/* Middle Column */}
+          <div className="md:col-span-2 mb-6 md:mb-0">
+            <motion.p
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-medium leading-snug md:leading-tight text-gray-900 text-center md:text-left"
+            >
               We firmly believe that <br />
               achieving a balanced work-life <br />
               harmony is not just <br />
@@ -52,10 +79,10 @@ const Services = () => {
               essential. This equilibrium <br />
               drives us to consistently <br />
               produce exceptional work.
-            </p>
+            </motion.p>
           </div>
 
-          {/* Right Column - Services Heading & Description */}
+          {/* Right Column */}
           <div className="md:col-span-3 md:mt-20 grid grid-cols-1 md:grid-cols-2 items-start">
             {/* Left */}
             <div>
@@ -66,27 +93,59 @@ const Services = () => {
                 </p>
               </div>
 
-              <h2 className="text-4xl sm:text-5xl md:text-4xl lg:text-[56px] font-medium leading-tight text-[#002bba] lg:-mt-18 md:-mt-18">
-                <span className="hidden md:inline lg:inline"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                We’re a digital <br />
-                marketing agency <br />
-                with expertise
-              </h2>
+              {/* Animated Title + Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "easeOut" }}
+              >
+                <h2 className="text-4xl sm:text-5xl md:text-4xl lg:text-[56px] font-medium leading-tight text-[#002bba] lg:-mt-18 md:-mt-18">
+                  <span className="hidden md:inline lg:inline"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  We’re a digital <br />
+                  marketing agency <br />
+                  with expertise
+                </h2>
+
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-6 flex items-center gap-2 bg-[#002bba] hover:bg-[#0077e6] transition px-6 py-3 rounded-full font-medium text-white"
+                >
+                  Let’s work
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </motion.button>
+              </motion.div>
             </div>
 
             {/* Right */}
-            <div className="flex items-center md:items-start">
-              <p className="text-lg sm:text-xl md:text-4xl leading-relaxed text-black max-w-xl md:mt-35">
+            <motion.div
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="flex items-center md:items-start"
+            >
+              <p className="text-lg sm:text-xl md:text-4xl leading-relaxed text-black max-w-xl mt-6 md:mt-35">
                 We bring our passion for good design to brave brands and deliver
                 something you can shout about.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
-      <div className="w-full h-px bg-neutral-300 mt-10"></div>
-
+        <div className="w-full h-px bg-neutral-300 mt-10"></div>
       </section>
 
+      <ServicesCard />
       <CTA />
     </>
   );
