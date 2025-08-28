@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 
 import branding from "../assets/branding.webp";
 import marketing from "../assets/marketing.webp";
@@ -33,9 +34,11 @@ const Services = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
+          <Link to="/contact">
             <button className="bg-[#002bba] text-white px-6 py-2 rounded-full text-sm hover:bg-blue-700 transition-all">
               Let’s discuss
             </button>
+          </Link>
           </div>
         </div>
 

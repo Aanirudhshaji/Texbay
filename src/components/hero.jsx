@@ -93,7 +93,7 @@ const Hero = () => {
           </p>
 
           <a
-            href="#"
+            href="/about"
             className="inline-flex items-center justify-between gap-4 border-2 border-white text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-black transition-all duration-300"
           >
             <span>Explore More</span>

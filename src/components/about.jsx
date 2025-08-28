@@ -23,13 +23,15 @@ const About = () => {
           </h2>
 
           {/* Desktop Button */}
-          <motion.button
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:inline-block bg-[#002bba] hover:bg-[#001a7d] text-white px-6 py-2.5 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300"
-          >
-            Our Story
-          </motion.button>
+          <a href="/about">
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="hidden md:inline-block bg-[#002bba] hover:bg-[#001a7d] text-white px-6 py-2.5 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              Our Story
+            </motion.button>
+          </a>
         </motion.div>
 
         {/* Bottom Section */}

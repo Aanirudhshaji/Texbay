@@ -23,6 +23,7 @@ import CustomCursor from './components/CustomCursor';
 import AboutPage from './pages/about';
 import Work from './pages/work';
 import Servicespage from './pages/servicespage';
+import Contact from './pages/contact';
 
 function App() {
   return (
@@ -77,6 +78,16 @@ function App() {
             element={
               <>
                 <Servicespage />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/contact"
+            element={
+              <>
+                <Contact />
                 <Footer />
               </>
             }

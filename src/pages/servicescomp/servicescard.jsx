@@ -59,7 +59,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-12 bg-[#fbfbfb]">
+    <section className="w-full px-4 md:px-10 lg:px-20 py-8 md:py-12 mb-14 bg-[#fbfbfb]">
       <div className="max-w-7xl mx-auto relative space-y-16 md:space-y-22">
         {servicesData.map((service, index) => (
           <div

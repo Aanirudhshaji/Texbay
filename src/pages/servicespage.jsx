@@ -1,7 +1,9 @@
 // services.jsx
 import React from "react";
-import { motion } from "framer-motion"; // ✅ Import Framer Motion
+import { motion } from "framer-motion"; 
+import ServicesProc from "./servicescomp/servicesproc";// ✅ Import Framer Motion
 import CTA from "./aboutcomp/cta";
+import Blog from "../components/Blog";
 import ServicesCard from "./servicescomp/servicescard";
 
 const Services = () => {
@@ -70,10 +72,10 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-medium leading-snug md:leading-tight text-gray-900 text-center md:text-left"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-[4.3rem] font-medium leading-snug md:leading-tight text-gray-900 text-center md:text-left"
             >
               We firmly believe that <br />
-              achieving a balanced work-life <br />
+              achieving a balanced<br /> work-life 
               harmony is not just <br />
               beneficial—it’s absolutely <br />
               essential. This equilibrium <br />
@@ -146,6 +148,8 @@ const Services = () => {
       </section>
 
       <ServicesCard />
+      <ServicesProc />
+      <Blog />
       <CTA />
     </>
   );

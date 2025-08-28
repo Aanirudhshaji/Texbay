@@ -18,7 +18,7 @@ const SmoothScrollWrapper = ({ children }) => {
     const scroll = new LocomotiveScroll({
       el: scrollEl,
       smooth: true,
-      lerp: 0.07,
+      lerp: 0.3,
       smartphone: { smooth: true },
       tablet: { smooth: true },
     });

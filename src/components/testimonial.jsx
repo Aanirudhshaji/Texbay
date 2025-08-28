@@ -1,5 +1,6 @@
 // Testimonial.jsx
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
@@ -122,9 +123,11 @@ const Testimonial = () => {
 
             {/* Button + arrows (mobile: arrows right aligned) */}
             <div className="flex items-center justify-between">
-              <button className="flex items-center gap-2 bg-[#002bba] hover:bg-[#0040ff] transition px-6 py-3 rounded-full font-medium text-white w-fit">
-                Let’s chat <ArrowUpRight size={18} />
-              </button>
+              <Link to="/contact">
+                <button className="flex items-center gap-2 bg-[#002bba] hover:bg-[#0040ff] transition px-6 py-3 rounded-full font-medium text-white w-fit">
+                  Let’s chat <ArrowUpRight size={18} />
+                </button>
+              </Link>
 
               {/* Mobile arrows on right end */}
               <div className="flex lg:hidden gap-2">

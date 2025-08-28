@@ -7,92 +7,70 @@ const CustomCursor = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Detect touch device
-    const isTouchDevice =
+    const touchDevice =
       "ontouchstart" in window || navigator.maxTouchPoints > 0;
-
-    setIsMobile(isTouchDevice);
-
-    if (isTouchDevice) return; // Stop running cursor logic on mobile
+    setIsMobile(touchDevice);
+    if (touchDevice) return;
 
     const cursor = cursorRef.current;
     const follower = followerRef.current;
 
+    let mouseX = 0;
+    let mouseY = 0;
+    let followerX = 0;
+    let followerY = 0;
+
+    const speed = 0.15; // follower lag
+
     const moveCursor = (e) => {
-      const { clientX, clientY } = e;
-
-      gsap.to(cursor, {
-        x: clientX,
-        y: clientY,
-        duration: 0.15,
-        ease: "power2.out",
-      });
-
-      gsap.to(follower, {
-        x: clientX,
-        y: clientY,
-        duration: 0.35,
-        ease: "power3.out",
-      });
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
     };
 
-    const addHoverEffect = () => {
-      gsap.to(followerRef.current, {
-        scale: 2,
-        duration: 0.3,
-        ease: "power2.out",
-      });
+    const animateFollower = () => {
+      followerX += (mouseX - followerX) * speed;
+      followerY += (mouseY - followerY) * speed;
+      follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+      requestAnimationFrame(animateFollower);
     };
 
-    const removeHoverEffect = () => {
-      gsap.to(followerRef.current, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    };
+    const addHoverEffect = () => gsap.to(follower, { scale: 2, duration: 0.1, ease: "none" });
+    const removeHoverEffect = () => gsap.to(follower, { scale: 1, duration: 0.1, ease: "none" });
 
     const hoverTargets = document.querySelectorAll("a, button, .hover-target");
-
-    hoverTargets.forEach((el) => {
+    hoverTargets.forEach(el => {
       el.addEventListener("mouseenter", addHoverEffect);
       el.addEventListener("mouseleave", removeHoverEffect);
     });
 
     window.addEventListener("mousemove", moveCursor);
+    requestAnimationFrame(animateFollower);
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
-      hoverTargets.forEach((el) => {
+      hoverTargets.forEach(el => {
         el.removeEventListener("mouseenter", addHoverEffect);
         el.removeEventListener("mouseleave", removeHoverEffect);
       });
     };
   }, []);
 
-  // 🧼 Don't render anything on mobile
-  if (isMobile) return null;
+  if (isMobile) return null; // hide cursor completely on mobile
 
   return (
     <>
-      {/* Follower */}
+      {/* Follower pixel */}
       <div
         ref={followerRef}
-        className="fixed top-0 left-0 z-[9999] w-10 h-10 rounded-full border border-[#002BBA] pointer-events-none"
-        style={{
-          transform: "translate(-50%, -50%)",
-          backdropFilter: "blur(5px)",
-          transition: "transform 0.3s ease-out",
-        }}
+        className="fixed top-0 left-0 z-[9999] w-4 h-4 bg-blue-500 pointer-events-none"
+        style={{ transform: "translate(-50%, -50%)", imageRendering: "pixelated" }}
       />
-
-      {/* Cursor Dot */}
+      {/* Main pixel */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 z-[9999] w-2.5 h-2.5 rounded-full bg-[#002BBA] pointer-events-none"
-        style={{
-          transform: "translate(-50%, -50%)",
-        }}
+        className="fixed top-0 left-0 z-[9999] w-2 h-2 bg-blue-600 pointer-events-none"
+        style={{ transform: "translate(-50%, -50%)", imageRendering: "pixelated" }}
       />
     </>
   );
